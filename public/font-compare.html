@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Font Comparison vs Reference Image</title>
+  <style>
+    @font-face {
+      font-family: 'Bodoni Moda 900';
+      src: url('/fonts/bodoni-moda-900.ttf') format('truetype');
+      font-weight: 900;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'DM Serif Display';
+      src: url('/fonts/dm-serif-display.ttf') format('truetype');
+      font-weight: 400;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Playfair Display 900';
+      src: url('/fonts/playfair-display-900.ttf') format('truetype');
+      font-weight: 900;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Cinzel Decorative 900';
+      src: url('/fonts/cinzel-decorative-900.ttf') format('truetype');
+      font-weight: 900;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Abril Fatface';
+      src: url('/fonts/abril-fatface.ttf') format('truetype');
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    body {
+      background: #0d0f12;
+      color: #F4EFE6;
+      font-family: sans-serif;
+      padding: 40px;
+    }
+
+    .card {
+      background: #16181D;
+      border: 1px solid #333;
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 24px;
+      max-width: 900px;
+    }
+
+    .label {
+      font-size: 14px;
+      color: #C87D55;
+      font-family: monospace;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .preview-text {
+      font-size: 54px;
+      letter-spacing: 0.05em;
+      line-height: 1.1;
+      color: #F4EFE6;
+    }
+
+    .f-bodoni { font-family: 'Bodoni Moda 900', serif; font-weight: 900; }
+    .f-dm { font-family: 'DM Serif Display', serif; }
+    .f-playfair { font-family: 'Playfair Display 900', serif; font-weight: 900; }
+    .f-cinzel { font-family: 'Cinzel Decorative 900', serif; font-weight: 900; }
+    .f-abril { font-family: 'Abril Fatface', serif; }
+  </style>
+</head>
+<body>
+  <h1>Exact Font Comparison vs User's Blueprint Image</h1>
+  
+  <div class="card">
+    <div class="label">Reference Blueprint Image (Uploaded by User)</div>
+    <img src="/assets/font_reference.png" style="max-width: 100%; height: auto; border: 1px solid #444;" alt="User Reference">
+  </div>
+
+  <div class="card">
+    <div class="label">Option 1: Bodoni Moda (Ultra High-Contrast Luxury Poster)</div>
+    <div class="preview-text f-bodoni">PORTFOLIO</div>
+  </div>
+
+  <div class="card">
+    <div class="label">Option 2: DM Serif Display (Editorial Headline Serif with Curved Brackets)</div>
+    <div class="preview-text f-dm">PORTFOLIO</div>
+  </div>
+
+  <div class="card">
+    <div class="label">Option 3: Playfair Display 900 Black</div>
+    <div class="preview-text f-playfair">PORTFOLIO</div>
+  </div>
+
+  <div class="card">
+    <div class="label">Option 4: Cinzel Decorative 900</div>
+    <div class="preview-text f-cinzel">PORTFOLIO</div>
+  </div>
+
+  <div class="card">
+    <div class="label">Option 5: Abril Fatface</div>
+    <div class="preview-text f-abril">PORTFOLIO</div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+/* ==========================================================================
+   ANIMATED HEXAGON TECH BACKGROUND (PURE EFFECTS - NO STATIC IMAGE)
+   Photorealistic vector honeycomb grid with moving tech blue light currents
+   ========================================================================== */
+
+.hex-background-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+  contain: strict;
+  transform: translate3d(0, 0, 0);
+}
+
+/* 1. Deep Void Foundation - Deep Charcoal (#0E1013) with subtle Lime-Charcoal center */
+.hex-base-void {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 50% 25%,
+      #151914 0%,
+      #111317 55%,
+      #0E1013 100%);
+  z-index: 1;
+}
+
+/* 2. Real-Time Moving Tech Acid Lime & Silver Light Canvas */
+.hex-circuit-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  filter: brightness(1.15);
+}
+
+/* 3. Vignette Darkening for Content Readability */
+.hex-vignette-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 85% 75% at 50% 50%,
+      rgba(14, 16, 19, 0.12) 0%,
+      rgba(14, 16, 19, 0.55) 65%,
+      rgba(14, 16, 19, 0.92) 100%);
+  z-index: 3;
+  pointer-events: none;
+}
