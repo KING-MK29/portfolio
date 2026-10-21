@@ -200,17 +200,27 @@ export default function HexagonCircuit() {
     const render = () => {
       ctx.clearRect(0, 0, width, height);
 
-      // 1. Draw subtle, elegant honeycomb seams (Acid Lime tint)
+      // 1. Draw crisp, clearly visible honeycomb seams & vertices (Acid Lime tint)
       ctx.beginPath();
       for (let i = 0; i < edges.length; i++) {
         const e = edges[i];
         ctx.moveTo(e.nodeA.x, e.nodeA.y);
         ctx.lineTo(e.nodeB.x, e.nodeB.y);
       }
-      ctx.strokeStyle = 'rgba(212, 255, 0, 0.15)';
-      ctx.lineWidth = 1.2;
+      ctx.strokeStyle = 'rgba(212, 255, 0, 0.32)';
+      ctx.lineWidth = 1.35;
       ctx.shadowBlur = 0;
       ctx.stroke();
+
+      // Subtle vertex joint nodes for high-definition hexagon grid structure
+      ctx.beginPath();
+      for (let i = 0; i < nodes.length; i++) {
+        const n = nodes[i];
+        ctx.moveTo(n.x + 1.2, n.y);
+        ctx.arc(n.x, n.y, 1.2, 0, Math.PI * 2);
+      }
+      ctx.fillStyle = 'rgba(212, 255, 0, 0.40)';
+      ctx.fill();
 
       // 2. Desired active count (5 on mobile, 8 on desktop)
       const desiredCount = width < 768 ? 5 : 8;

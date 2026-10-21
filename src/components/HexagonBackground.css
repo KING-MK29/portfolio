@@ -19,37 +19,36 @@
 /* 1. Deep Void Foundation - Deep Charcoal (#0E1013) with subtle Lime-Charcoal center */
 .hex-base-void {
   position: absolute;
-  inset: 0;
+  inset: -10px;
   background: radial-gradient(ellipse 80% 60% at 50% 25%,
       #151914 0%,
       #111317 55%,
       #0E1013 100%);
+  filter: blur(8px);
   z-index: 1;
 }
 
-/* 2. Real-Time Moving Tech Acid Lime & Silver Light Canvas */
+/* 2. Real-Time Moving Tech Acid Lime & Silver Light Canvas (Razor-Sharp & Distinct Hexagons) */
 .hex-circuit-canvas {
   position: absolute;
-  inset: -12px;
-  width: calc(100% + 24px);
-  height: calc(100% + 24px);
+  inset: 0;
+  width: 100%;
+  height: 100%;
   z-index: 2;
   pointer-events: none;
   mix-blend-mode: screen;
-  filter: brightness(1.3) contrast(1.1) blur(3px);
+  filter: brightness(1.28) contrast(1.15);
   transform: translate3d(0, 0, 0);
 }
 
-/* 3. Vignette Darkening & Soft Atmospheric Blur for Content Readability */
+/* 3. Vignette Darkening for Maximum Content Readability (Crystal-Clear Hexagon Visibility) */
 .hex-vignette-overlay {
   position: absolute;
   inset: 0;
   background: radial-gradient(ellipse 85% 75% at 50% 50%,
-      rgba(14, 16, 19, 0.04) 0%,
-      rgba(14, 16, 19, 0.35) 60%,
-      rgba(14, 16, 19, 0.78) 100%);
-  backdrop-filter: blur(3px);
-  -webkit-backdrop-filter: blur(3px);
+      rgba(14, 16, 19, 0.02) 0%,
+      rgba(14, 16, 19, 0.25) 60%,
+      rgba(14, 16, 19, 0.70) 100%);
   z-index: 3;
   pointer-events: none;
 }
