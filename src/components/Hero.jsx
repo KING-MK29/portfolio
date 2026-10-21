@@ -81,14 +81,17 @@ export default function Hero() {
           <div className="hero-grid">
             {/* Left Column: Hero Content */}
             <div className="hero-content">
-              {/* Current Status Card */}
+              {/* Current Status Card — Sleek Cyber Luxury Live Status */}
               <div className="hero-status-card">
-                <div className="channel-icon-box">
-                  <Clock size={20} className="text-copper" />
+                <div className="status-card-icon-box">
+                  <Clock size={16} className="text-copper" />
                 </div>
-                <div className="channel-info">
-                  <span className="channel-label font-mono">CURRENT STATUS</span>
-                  <span className="channel-value">{personal.statusBadge}</span>
+                <div className="status-card-text">
+                  <div className="status-card-meta font-mono">
+                    <span className="status-live-dot" />
+                    <span>CURRENT STATUS</span>
+                  </div>
+                  <span className="status-card-title">{personal.statusBadge}</span>
                 </div>
               </div>
 
