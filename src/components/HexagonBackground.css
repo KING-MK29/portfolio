@@ -30,17 +30,17 @@
 /* 2. Real-Time Moving Tech Acid Lime & Silver Light Canvas */
 .hex-circuit-canvas {
   position: absolute;
-  inset: -8px;
-  width: calc(100% + 16px);
-  height: calc(100% + 16px);
+  inset: -12px;
+  width: calc(100% + 24px);
+  height: calc(100% + 24px);
   z-index: 2;
   pointer-events: none;
   mix-blend-mode: screen;
-  filter: brightness(1.3) contrast(1.1) blur(1.5px);
+  filter: brightness(1.3) contrast(1.1) blur(3px);
   transform: translate3d(0, 0, 0);
 }
 
-/* 3. Vignette Darkening & Soft 5% Atmospheric Blur for Content Readability */
+/* 3. Vignette Darkening & Soft Atmospheric Blur for Content Readability */
 .hex-vignette-overlay {
   position: absolute;
   inset: 0;
@@ -48,8 +48,8 @@
       rgba(14, 16, 19, 0.04) 0%,
       rgba(14, 16, 19, 0.35) 60%,
       rgba(14, 16, 19, 0.78) 100%);
-  backdrop-filter: blur(1.5px);
-  -webkit-backdrop-filter: blur(1.5px);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
   z-index: 3;
   pointer-events: none;
 }
