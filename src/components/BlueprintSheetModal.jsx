@@ -17,6 +17,7 @@ import {
   Check
 } from 'lucide-react';
 import { createModularBoyCharacter } from './Boy3DModelBuilder';
+import { getAssetUrl } from '../utils/assetHelper';
 
 export default function BlueprintSheetModal({ isOpen, onClose }) {
   const centerCanvasRef = useRef(null);
@@ -341,7 +342,7 @@ export default function BlueprintSheetModal({ isOpen, onClose }) {
 
             <div className="render-image-container">
               <img
-                src="/assets/modular_boy_blueprint_render.jpg"
+                src={getAssetUrl('/assets/modular_boy_blueprint_render.jpg')}
                 alt="3D Cartoon Boy Modular Blueprint Sheet 4K"
                 className="blueprint-4k-img"
               />
@@ -551,7 +552,7 @@ export default function BlueprintSheetModal({ isOpen, onClose }) {
             <span className="export-title">3D EXPORTS:</span>
 
             <a
-              href="/models/cartoon_boy_modular_blueprint.obj"
+              href={getAssetUrl('/models/cartoon_boy_modular_blueprint.obj')}
               download="cartoon_boy_modular_blueprint.obj"
               className="export-link-btn"
               title="Download modular exploded 3D model in universal OBJ format"
@@ -561,7 +562,7 @@ export default function BlueprintSheetModal({ isOpen, onClose }) {
             </a>
 
             <a
-              href="/models/cartoon_boy_assembled.obj"
+              href={getAssetUrl('/models/cartoon_boy_assembled.obj')}
               download="cartoon_boy_assembled.obj"
               className="export-link-btn"
               title="Download assembled 3D model in universal OBJ format"
@@ -571,7 +572,7 @@ export default function BlueprintSheetModal({ isOpen, onClose }) {
             </a>
 
             <a
-              href="/models/cartoon_boy_tpose.obj"
+              href={getAssetUrl('/models/cartoon_boy_tpose.obj')}
               download="cartoon_boy_tpose.obj"
               className="export-link-btn"
               title="Download rigging-ready T-pose model in OBJ format"
@@ -591,7 +592,7 @@ export default function BlueprintSheetModal({ isOpen, onClose }) {
             </button>
 
             <a
-              href="/assets/modular_boy_blueprint_render.jpg"
+              href={getAssetUrl('/assets/modular_boy_blueprint_render.jpg')}
               download="cartoon_boy_modular_blueprint_4k.jpg"
               className="export-link-btn"
               title="Download Ultra-HD 4K character blueprint render (.JPG)"

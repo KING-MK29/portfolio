@@ -1,3 +1,5 @@
+import { getAssetUrl } from '../utils/assetHelper';
+
 export const portfolioData = {
   personal: {
     name: "Mukesh Kumaran M",
@@ -19,12 +21,12 @@ export const portfolioData = {
     institution: "Ramco Institute of Technology",
     batch: "2025 — 2029",
     cgpa: "6.5",
-    photoUrl: "/assets/mukesh_profile.jpg",
-    photoFallback: "/assets/photo-placeholder.svg",
-    resumeUrl: "/assets/Mukesh_Kumaran_Resume.pdf",
+    photoUrl: getAssetUrl('/assets/mukesh_profile.jpg'),
+    photoFallback: getAssetUrl('/assets/photo-placeholder.svg'),
+    resumeUrl: getAssetUrl('/assets/Mukesh_Kumaran_Resume.pdf'),
     resumePages: [
-      "/assets/mukesh_kumaran_resume_page1.jpg",
-      "/assets/mukesh_kumaran_resume_page2.jpg"
+      getAssetUrl('/assets/mukesh_kumaran_resume_page1.jpg'),
+      getAssetUrl('/assets/mukesh_kumaran_resume_page2.jpg')
     ],
     tagline: "Building resilient AI systems, data science pipelines, and scalable architectures with clean code and mathematical rigor.",
     bio: [
@@ -133,7 +135,7 @@ export const portfolioData = {
       featured: true,
       year: "2024",
       description: "Live commercial website engineered for Srinivasa Textiles, an authentic family textile brand established in 1978. Features responsive catalog browsing for silk sarees, family wedding combos, Silk Mark certification branding, and customer order inquiries.",
-      image: "/assets/project_textile.jpg",
+      image: getAssetUrl('/assets/project_textile.jpg'),
       tech: ["HTML5", "CSS3", "JavaScript", "Render", "UI/UX Design"],
       metrics: "Live in production on Render • 100% Mobile Responsive",
       highlights: [
@@ -152,7 +154,7 @@ export const portfolioData = {
       year: "2024",
       status: "SIH In Progress",
       description: "Team project engineered for Smart India Hackathon (SIH) — successfully advanced to the next stage and actively in progress. A transparent MPLADS governance and expenditure monitoring platform with authority-separated role workspaces (MP, Authority Board, Officer, Public), geo-tagged evidence tracking, and AI anomaly detection.",
-      image: "/assets/project_prahari.jpg",
+      image: getAssetUrl('/assets/project_prahari.jpg'),
       tech: ["Next.js", "React", "Tailwind CSS", "AI Analytics", "Render"],
       metrics: "Advanced to next stage in Smart India Hackathon (SIH)",
       highlights: [
@@ -174,8 +176,8 @@ export const portfolioData = {
       month: "SEP 2026",
       date: "September 25–26, 2026",
       status: "24-Hr Hackathon Sprint",
-      pdfUrl: "/assets/wonders_of_ai_4_hackathon_certificate.pdf",
-      imageUrl: "/assets/wonders_of_ai_4_hackathon_certificate.jpg",
+      pdfUrl: getAssetUrl('/assets/wonders_of_ai_4_hackathon_certificate.pdf'),
+      imageUrl: getAssetUrl('/assets/wonders_of_ai_4_hackathon_certificate.jpg'),
       description: "Certificate of Participation awarded to Mukesh Kumaran from the Department of Artificial Intelligence and Data Science, Ramco Institute of Technology for competing in the high-stakes 24-hour 'Wonders of AI 4.0' hackathon organized by the Department of CSE, School of Computing at Kalasalingam Academy of Research and Education during Euphoria 2026.",
       skills: ["24-Hour Hackathon", "Deep Learning & AI", "Rapid Prototyping", "Team Sprint Execution", "Autonomous Systems"]
     },
@@ -188,8 +190,8 @@ export const portfolioData = {
       status: "Enterprise Job Simulation",
       verificationCode: "JdSFBTrtbCh66eg43",
       userCode: "6a43951bdea7e0a1a59425b3",
-      pdfUrl: "/assets/deloitte_data_analytics_certificate.pdf",
-      imageUrl: "/assets/deloitte_data_analytics_certificate.jpg",
+      pdfUrl: getAssetUrl('/assets/deloitte_data_analytics_certificate.pdf'),
+      imageUrl: getAssetUrl('/assets/deloitte_data_analytics_certificate.jpg'),
       description: "Certificate of Completion awarded to Mukesh Kumaran M for successfully completing practical corporate tasks in Data Analysis and Forensic Technology for Deloitte, authenticated by Tina McCreery, Chief Human Resources Officer.",
       skills: ["Data Analysis", "Forensic Technology", "Pattern Detection", "Enterprise Advisory", "Client Reporting"]
     },
@@ -202,8 +204,8 @@ export const portfolioData = {
       status: "GenAI Industry Simulation",
       verificationCode: "h2nvrJHxNbHfoXYZd",
       userCode: "6a43951bdea7e0a1a59425b3",
-      pdfUrl: "/assets/tata_genai_data_analytics_certificate.pdf",
-      imageUrl: "/assets/tata_genai_data_analytics_certificate.jpg",
+      pdfUrl: getAssetUrl('/assets/tata_genai_data_analytics_certificate.pdf'),
+      imageUrl: getAssetUrl('/assets/tata_genai_data_analytics_certificate.jpg'),
       description: "Certificate of Completion awarded to Mukesh Kumaran M for practical execution in Exploratory Data Analysis & risk profiling, predicting delinquency with AI, executive data storytelling, and deploying AI-driven collections strategy for Tata.",
       skills: ["Generative AI", "Exploratory Data Analysis", "Delinquency Prediction", "Risk Profiling", "AI Collections Strategy"]
     },
@@ -215,8 +217,8 @@ export const portfolioData = {
       date: "June 9, 2026",
       status: "HP LIFE Online Course",
       serialNumber: "e4fbf7ad-8aa7-4a82-be67-3d9ed37e0415",
-      pdfUrl: "/assets/hp_data_science_analytics_certificate.pdf",
-      imageUrl: "/assets/hp_data_science_analytics_certificate.jpg",
+      pdfUrl: getAssetUrl('/assets/hp_data_science_analytics_certificate.pdf'),
+      imageUrl: getAssetUrl('/assets/hp_data_science_analytics_certificate.jpg'),
       description: "Certificate of Completion presented to MukeshKumaran M by Michele Malejki, Executive Director, HP Foundation. Rigorous coursework covering industry-leading data science and analytics practices, methodologies, modern toolsets, and data-driven business models.",
       skills: ["Data Science & Analytics", "Business Intelligence", "Data-Driven Strategy", "Analytical Methodologies", "Decision Science"]
     },
@@ -227,8 +229,8 @@ export const portfolioData = {
       month: "MAR 2026",
       date: "March 13–14, 2026",
       status: "Hackathon Credential",
-      pdfUrl: "/assets/kare_wonders_of_ai_certificate.pdf",
-      imageUrl: "/assets/kare_wonders_of_ai_certificate.jpg",
+      pdfUrl: getAssetUrl('/assets/kare_wonders_of_ai_certificate.pdf'),
+      imageUrl: getAssetUrl('/assets/kare_wonders_of_ai_certificate.jpg'),
       description: "Certificate of Participation awarded to Mukesh Kumaran M from Ramco Institute of Technology for participating in KARE OSS — Wonders of AI 3.0, a national-level AI and open-source software hackathon organized by the Department of Computer Science & Engineering during Euphoria 2026.",
       skills: ["Artificial Intelligence", "Open Source Software (OSS)", "AI Problem Solving", "Hackathon Sprint", "Sustainable Tech"]
     },
@@ -239,7 +241,7 @@ export const portfolioData = {
       month: "OCT 2024",
       date: "October 2024",
       status: "Verified Credential",
-      pdfUrl: "/assets/Explore_Machine_Learning_using_Python.pdf",
+      pdfUrl: getAssetUrl('/assets/Explore_Machine_Learning_using_Python.pdf'),
       description: "Rigorous training covering supervised machine learning, regression analysis, regularized model pipelines, gradient boosting, and automated Python ML workflows.",
       skills: ["Supervised Learning", "Regression Analysis", "Scikit-Learn", "Model Evaluation"]
     }

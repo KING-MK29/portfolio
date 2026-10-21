@@ -15,6 +15,7 @@ import {
   Maximize2
 } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
+import { getAssetUrl } from '../utils/assetHelper';
 import Modal from './Modal';
 import PageNav from './PageNav';
 
@@ -191,7 +192,7 @@ export default function Resume() {
                     }}
                   >
                     <img
-                      src={personal.resumePages?.[0] || '/assets/mukesh_kumaran_resume_page1.jpg'}
+                      src={personal.resumePages?.[0] || getAssetUrl('/assets/mukesh_kumaran_resume_page1.jpg')}
                       alt="Mukesh Kumaran Resume Page 1"
                       className="resume-sheet-img"
                       loading="eager"
@@ -242,7 +243,7 @@ export default function Resume() {
                     }}
                   >
                     <img
-                      src={personal.resumePages?.[1] || '/assets/mukesh_kumaran_resume_page2.jpg'}
+                      src={personal.resumePages?.[1] || getAssetUrl('/assets/mukesh_kumaran_resume_page2.jpg')}
                       alt="Mukesh Kumaran Resume Page 2"
                       className="resume-sheet-img"
                       loading="lazy"
@@ -336,7 +337,7 @@ export default function Resume() {
               {/* Modal Image View */}
               <div className="resume-modal-zoom-container">
                 <img
-                  src={personal.resumePages?.[zoomPage] || (zoomPage === 0 ? '/assets/mukesh_kumaran_resume_page1.jpg' : '/assets/mukesh_kumaran_resume_page2.jpg')}
+                  src={personal.resumePages?.[zoomPage] || (zoomPage === 0 ? getAssetUrl('/assets/mukesh_kumaran_resume_page1.jpg') : getAssetUrl('/assets/mukesh_kumaran_resume_page2.jpg'))}
                   alt={`Mukesh Kumaran Resume Page ${Number(zoomPage) + 1}`}
                   className="resume-modal-zoom-image"
                 />
