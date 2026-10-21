@@ -118,9 +118,9 @@ export default function HexagonCircuit() {
       nodes = Array.from(nodeMap.values());
       edges = edgesList;
 
-      // Seed initial tech blue pulses (minimal, few points only: 8 points)
+      // Seed initial tech pulses (strictly minimal: 2-3 dots across entire screen)
       pulses = [];
-      const initialPulseCount = 8;
+      const initialPulseCount = width < 768 ? 2 : 3;
       for (let i = 0; i < initialPulseCount; i++) {
         spawnPulse();
       }
@@ -165,10 +165,10 @@ export default function HexagonCircuit() {
 
       // Tech Acid Lime & Silver pulse shades
       const colors = [
-        { primary: '#D4FF00', trailColor: 'rgba(212, 255, 0, 0.65)' },
-        { primary: '#E2FF33', trailColor: 'rgba(226, 255, 51, 0.65)' },
-        { primary: '#F1F4F8', trailColor: 'rgba(241, 244, 248, 0.55)' },
-        { primary: '#CCFF00', trailColor: 'rgba(204, 255, 0, 0.60)' },
+        { primary: '#D4FF00', trailColor: 'rgba(212, 255, 0, 0.40)' },
+        { primary: '#E2FF33', trailColor: 'rgba(226, 255, 51, 0.40)' },
+        { primary: '#F1F4F8', trailColor: 'rgba(241, 244, 248, 0.35)' },
+        { primary: '#CCFF00', trailColor: 'rgba(204, 255, 0, 0.40)' },
       ];
       const colorScheme = colors[Math.floor(Math.random() * colors.length)];
 
@@ -177,13 +177,14 @@ export default function HexagonCircuit() {
         toNode,
         prevNodeId: fromNode.id,
         progress: Math.random() * 0.3,
-        speed: (Math.random() * 1.8 + 2.2) * speedMultiplier,
+        // Calm, smooth, slow movement (reduced from 2.2-4.0 down to ~0.65-0.85)
+        speed: (Math.random() * 0.25 + 0.60) * speedMultiplier,
         length,
         colorScheme,
         trail: [],
-        maxTrail: 10,
-        life: Math.floor(Math.random() * 220 + 150),
-        branchChance: 0.03, // Very low branching to keep points count minimal
+        maxTrail: 5,
+        life: Math.floor(Math.random() * 450 + 350), // Extended lifespan for graceful slow travel
+        branchChance: 0, // Zero branching to strictly maintain minimal dots
       });
     };
 
@@ -206,32 +207,33 @@ export default function HexagonCircuit() {
         ctx.moveTo(e.nodeA.x, e.nodeA.y);
         ctx.lineTo(e.nodeB.x, e.nodeB.y);
       }
-      ctx.strokeStyle = 'rgba(212, 255, 0, 0.10)';
+      ctx.strokeStyle = 'rgba(212, 255, 0, 0.08)';
       ctx.lineWidth = 1.0;
       ctx.shadowBlur = 0;
       ctx.stroke();
 
+      // 2. Desired minimal count (2 on mobile, 3 on desktop)
+      const desiredCount = width < 768 ? 2 : 3;
 
-
-      // 3. Gentle periodic pulse spawn (every 3.8s, only if count is low)
+      // 3. Gentle periodic pulse spawn (every 6.0s, only if count drops below minimal)
       const now = performance.now();
-      if (now - lastAutoSurgeTime > 3800) {
+      if (now - lastAutoSurgeTime > 6000) {
         lastAutoSurgeTime = now;
-        if (nodes.length > 0 && pulses.length < 10) {
+        if (nodes.length > 0 && pulses.length < desiredCount) {
           const randomNode = nodes[Math.floor(Math.random() * nodes.length)];
           spawnPulse(randomNode, null, 1.0);
         }
       }
 
-      // 4. Update and draw active tech blue light pulses (STRICTLY CAPPED: 8-12 points)
-      const activePulsesLimit = 12;
+      // 4. Update and draw active light pulses (STRICTLY MINIMAL: max 3-4 dots)
+      const activePulsesLimit = desiredCount + 1;
       const newPulsesToAdd = [];
 
       for (let i = pulses.length - 1; i >= 0; i--) {
         const p = pulses[i];
         p.life--;
 
-        // Advance pulse progress along current edge
+        // Advance pulse progress along current edge at slow, smooth speed
         p.progress += p.speed / p.length;
 
         // Current head position
@@ -243,8 +245,6 @@ export default function HexagonCircuit() {
         if (p.trail.length > p.maxTrail) {
           p.trail.pop();
         }
-
-
 
         // Reached end of current edge -> pick next neighbor
         if (p.progress >= 1.0) {
@@ -280,28 +280,6 @@ export default function HexagonCircuit() {
 
             const nextTarget = candidates[0];
 
-            // Rare branch
-            if (candidates.length > 1 && Math.random() < p.branchChance && pulses.length + newPulsesToAdd.length < activePulsesLimit) {
-              const branchTarget = candidates[1];
-              const bDx = branchTarget.x - arrivedNode.x;
-              const bDy = branchTarget.y - arrivedNode.y;
-              const bLen = Math.sqrt(bDx * bDx + bDy * bDy) || R;
-
-              newPulsesToAdd.push({
-                fromNode: arrivedNode,
-                toNode: branchTarget,
-                prevNodeId: arrivedNode.id,
-                progress: 0,
-                speed: p.speed * 0.95,
-                length: bLen,
-                colorScheme: p.colorScheme,
-                trail: [{ x: arrivedNode.x, y: arrivedNode.y }],
-                maxTrail: 8,
-                life: Math.floor(p.life * 0.5),
-                branchChance: 0,
-              });
-            }
-
             p.fromNode = arrivedNode;
             p.toNode = nextTarget;
             const nDx = nextTarget.x - arrivedNode.x;
@@ -312,7 +290,7 @@ export default function HexagonCircuit() {
           }
         }
 
-        // Draw clean trailing tail along hexagon lines (crisp, zero shining glare)
+        // Draw clean trailing tail along hexagon lines
         if (p.trail.length > 1) {
           ctx.beginPath();
           ctx.moveTo(p.trail[0].x, p.trail[0].y);
@@ -320,15 +298,15 @@ export default function HexagonCircuit() {
             ctx.lineTo(p.trail[t].x, p.trail[t].y);
           }
           ctx.strokeStyle = p.colorScheme.trailColor;
-          ctx.lineWidth = 1.5;
+          ctx.lineWidth = 1.1;
           ctx.shadowBlur = 0;
           ctx.lineCap = 'round';
           ctx.stroke();
         }
 
-        // Draw crisp pulse point head (clean solid tech blue point dot - zero shining bloom)
+        // Draw crisp minimal pulse point head dot
         ctx.beginPath();
-        ctx.arc(headX, headY, 2.2, 0, Math.PI * 2);
+        ctx.arc(headX, headY, 1.8, 0, Math.PI * 2);
         ctx.fillStyle = p.colorScheme.primary;
         ctx.shadowBlur = 0;
         ctx.fill();
@@ -345,11 +323,7 @@ export default function HexagonCircuit() {
         }
       }
 
-      // Add branched pulses
-      pulses.push(...newPulsesToAdd);
-
-      // Maintain only a small, elegant number of points (Strictly 8 points)
-      const desiredCount = 8;
+      // Maintain strictly minimal dots (2 on mobile, 3 on desktop)
       while (pulses.length < desiredCount) {
         spawnPulse();
       }

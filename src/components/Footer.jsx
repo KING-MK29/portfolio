@@ -22,7 +22,6 @@ export default function Footer() {
           <div className="footer-brand">
             <Link to="/" className="footer-logo">
               <span className="logo-text">MK</span>
-              <span className="logo-dot" />
             </Link>
             <p className="footer-brand-desc">
               Mukesh Kumaran M — Data Science Engineer & Backend Developer. Architecting reliable, mathematically grounded software systems.

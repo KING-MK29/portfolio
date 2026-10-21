@@ -133,7 +133,7 @@ export const portfolioData = {
       title: "Srinivasa Textiles — Commercial E-Commerce Platform",
       category: "Commercial Web Platform",
       featured: true,
-      year: "2024",
+      year: "2026",
       description: "Live commercial website engineered for Srinivasa Textiles, an authentic family textile brand established in 1978. Features responsive catalog browsing for silk sarees, family wedding combos, Silk Mark certification branding, and customer order inquiries.",
       image: getAssetUrl('/assets/project_textile.jpg'),
       tech: ["HTML5", "CSS3", "JavaScript", "Render", "UI/UX Design"],
@@ -151,7 +151,7 @@ export const portfolioData = {
       title: "Prahari — Smart India Hackathon (SIH) Governance Portal",
       category: "SIH Hackathon & GovTech",
       featured: true,
-      year: "2024",
+      year: "2026",
       status: "SIH In Progress",
       description: "Team project engineered for Smart India Hackathon (SIH) — successfully advanced to the next stage and actively in progress. A transparent MPLADS governance and expenditure monitoring platform with authority-separated role workspaces (MP, Authority Board, Officer, Public), geo-tagged evidence tracking, and AI anomaly detection.",
       image: getAssetUrl('/assets/project_prahari.jpg'),
@@ -169,6 +169,18 @@ export const portfolioData = {
   ],
 
   certificates: [
+    {
+      id: "cert-ml-python",
+      title: "Explore Machine Learning using Python",
+      issuer: "Machine Learning & Python Specialization",
+      month: "OCT 2026",
+      date: "October 2026",
+      status: "Verified Credential",
+      pdfUrl: getAssetUrl('/assets/Explore_Machine_Learning_using_Python.pdf'),
+      imageUrl: getAssetUrl('/assets/explore_machine_learning_using_python.jpg'),
+      description: "Rigorous training covering supervised machine learning, regression analysis, regularized model pipelines, gradient boosting, and automated Python ML workflows.",
+      skills: ["Supervised Learning", "Regression Analysis", "Scikit-Learn", "Model Evaluation"]
+    },
     {
       id: "cert-wonders-of-ai-4",
       title: "Wonders of AI 4.0 — 24 Hrs Hackathon",
@@ -233,17 +245,6 @@ export const portfolioData = {
       imageUrl: getAssetUrl('/assets/kare_wonders_of_ai_certificate.jpg'),
       description: "Certificate of Participation awarded to Mukesh Kumaran M from Ramco Institute of Technology for participating in KARE OSS — Wonders of AI 3.0, a national-level AI and open-source software hackathon organized by the Department of Computer Science & Engineering during Euphoria 2026.",
       skills: ["Artificial Intelligence", "Open Source Software (OSS)", "AI Problem Solving", "Hackathon Sprint", "Sustainable Tech"]
-    },
-    {
-      id: "cert-ml-python",
-      title: "Explore Machine Learning using Python",
-      issuer: "Machine Learning & Python Specialization",
-      month: "OCT 2024",
-      date: "October 2024",
-      status: "Verified Credential",
-      pdfUrl: getAssetUrl('/assets/Explore_Machine_Learning_using_Python.pdf'),
-      description: "Rigorous training covering supervised machine learning, regression analysis, regularized model pipelines, gradient boosting, and automated Python ML workflows.",
-      skills: ["Supervised Learning", "Regression Analysis", "Scikit-Learn", "Model Evaluation"]
     }
   ],
 
@@ -267,7 +268,7 @@ export const portfolioData = {
     {
       role: "Frontend & Web Developer (Client Project)",
       organization: "Srinivasa Textiles",
-      period: "2024",
+      period: "2026",
       type: "Commercial Client Project",
       points: [
         "Delivered end-to-end commercial website for a local heritage textile showroom with pure silk saree catalog.",
@@ -278,7 +279,7 @@ export const portfolioData = {
     {
       role: "Full Stack & AI Developer (Team Project)",
       organization: "Smart India Hackathon (SIH) — Prahari",
-      period: "2024 — Present",
+      period: "2026 — Present",
       type: "National Hackathon",
       points: [
         "Co-developed transparent MPLADS governance portal, advancing to the next stage in Smart India Hackathon.",

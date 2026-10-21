@@ -11,6 +11,12 @@ import Resume from './components/Resume';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import HexagonBackground from './components/HexagonBackground';
+import { useScrollReveal } from './hooks/useScrollReveal';
+
+function ScrollRevealManager() {
+  useScrollReveal();
+  return null;
+}
 
 export default function App() {
   return (
@@ -18,6 +24,9 @@ export default function App() {
       <div className="portfolio-app-root">
         {/* Animated Cyber Hexagon Background (100% Autonomous) */}
         <HexagonBackground />
+
+        {/* Global Moderate Scroll Reveal Manager */}
+        <ScrollRevealManager />
 
         {/* Automatic Scroll to Top on page transition */}
         <ScrollToTop />

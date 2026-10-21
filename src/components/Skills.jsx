@@ -638,16 +638,14 @@ export default function Skills() {
     }
   }, [activeCategoryId, activeCategory]);
 
-  // Handle Logo Touch / Click from Initial Grid
+  // Handle Logo Touch / Click from Initial Grid - smoothly animates tabs to side dock
   const handleSelectCategory = (catId) => {
     setActiveCategoryId(catId);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   // Return to All Domains Overview
   const handleBackToOverview = () => {
     setActiveCategoryId(null);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   // Next / Previous Category Navigation inside Main Box
@@ -821,7 +819,8 @@ export default function Skills() {
                           '--cat-color': cat.color,
                           '--cat-border': cat.borderColor,
                           '--cat-glow': cat.glowColor,
-                          '--cat-bg': cat.bgGradient
+                          '--cat-bg': cat.bgGradient,
+                          animationDelay: `${idx * 0.055}s`
                         }}
                         title={`Switch to ${cat.title}`}
                       >
@@ -857,6 +856,7 @@ export default function Skills() {
                   "TOUCH PANNATHODA DETAILS ELLAM ORU BOX AH MAIN AH SHOW AAGANUM"
                   ------------------------------------------------------------- */}
               <main
+                key={activeCategory.id}
                 className="skills-main-box glass-panel"
                 style={{
                   '--cat-color': activeCategory.color,
@@ -950,7 +950,7 @@ export default function Skills() {
 
                 {/* 3. TOUCHED LOGO'S COMPLETE DETAILS (EXACT MATCH TO IMAGE 1!) */}
                 {focusedSkill && (
-                  <section className="main-box-spotlight-card">
+                  <section key={focusedSkill.id} className="main-box-spotlight-card">
                     <div className="spotlight-left-gauge">
                       <div className="circular-gauge-wrapper">
                         <svg className="gauge-svg" viewBox="0 0 120 120">

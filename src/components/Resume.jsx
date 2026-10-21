@@ -11,8 +11,7 @@ import {
   ChevronLeft,
   ChevronRight,
   ArrowDown,
-  ArrowUp,
-  Maximize2
+  ArrowUp
 } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
 import { getAssetUrl } from '../utils/assetHelper';
@@ -132,16 +131,6 @@ export default function Resume() {
 
               {/* Reader Action Buttons */}
               <div className="reader-toolbar-right">
-                <button
-                  type="button"
-                  onClick={() => setZoomPage(activePage - 1)}
-                  className="reader-action-btn font-mono"
-                  title="Expand to Fullscreen"
-                  aria-label="Expand current page"
-                >
-                  <Maximize2 size={14} />
-                  <span className="desktop-only-text">Expand</span>
-                </button>
                 <a
                   href={personal.resumeUrl}
                   download="Mukesh_Kumaran_M_Resume.pdf"

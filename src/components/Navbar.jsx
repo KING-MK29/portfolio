@@ -39,7 +39,6 @@ export default function Navbar() {
         <Link to="/" className="navbar-logo" aria-label="Mukesh Kumaran M Homepage">
           <div className="logo-badge">
             <span className="logo-text">MK</span>
-            <span className="logo-dot" />
           </div>
           <span className="logo-name">Mukesh Kumaran</span>
         </Link>
