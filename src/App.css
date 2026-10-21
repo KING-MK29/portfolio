@@ -619,6 +619,26 @@
 .hero-metric-item {
   display: flex;
   flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+}
+
+.hero-metric-item.hero-metric-item-clickable {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.hero-metric-item.hero-metric-item-clickable:hover {
+  transform: translateY(-2px);
+}
+
+.hero-metric-item.hero-metric-item-clickable:hover .metric-val {
+  color: #E2FF33;
+  text-shadow: 0 0 12px rgba(212, 255, 0, 0.5);
+}
+
+.hero-metric-item.hero-metric-item-clickable:hover .metric-lbl {
+  color: var(--text-primary);
 }
 
 .metric-val {
@@ -1821,6 +1841,28 @@
   justify-content: center;
   align-items: center;
   min-height: 104px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.25s ease,
+              box-shadow 0.25s ease,
+              background-color 0.25s ease;
+}
+
+.highlight-stat-card.highlight-stat-card-clickable {
+  cursor: pointer;
+  position: relative;
+}
+
+.highlight-stat-card.highlight-stat-card-clickable:hover {
+  transform: translateY(-4px);
+  border-color: rgba(212, 255, 0, 0.45);
+  box-shadow: 0 12px 28px -8px rgba(212, 255, 0, 0.16), 0 0 0 1px rgba(212, 255, 0, 0.2);
+  background: rgba(22, 26, 31, 0.95);
+}
+
+.highlight-stat-card.highlight-stat-card-clickable:active {
+  transform: scale(0.98);
 }
 
 .stat-number {

@@ -35,9 +35,9 @@ export const portfolioData = {
       "I took part in SIH (Smart India Hackathon), where our team advanced to the next stage, and those projects are still in progress. Alongside this, I’ve completed an online internship and several online courses, and I’m always working on new team project ideas. I’m currently looking for internship / entry-level role / freelance work."
     ],
     stats: [
-      { id: "projects", label: "Client & Team Projects", value: "02" },
-      { id: "credentials", label: "Verified Credentials", value: "06+" },
-      { id: "languages", label: "Core Languages", value: "Python, C++, Java" }
+      { id: "projects", label: "Client & Team Projects", value: "02", link: "/projects" },
+      { id: "credentials", label: "Verified Credentials", value: "06+", link: "/certificates" },
+      { id: "languages", label: "Core Languages", value: "Python, C++, Java", link: "/skills" }
     ],
     coreValues: [
       "Clean Architecture",

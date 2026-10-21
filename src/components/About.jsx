@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { User, Award, CheckCircle2, GraduationCap, MapPin, Calendar, BookOpen } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
 import PageNav from './PageNav';
@@ -57,14 +58,22 @@ export default function About() {
             <div className="about-side-column">
               {/* Highlights Grid */}
               <div className="highlights-grid">
-                {personal.stats.map((stat) => (
-                  <div key={stat.id} className="portfolio-card highlight-stat-card">
-                    <div className={`stat-number font-mono ${stat.value.length > 5 ? 'stat-text-compact' : ''}`}>
-                      {stat.value}
-                    </div>
-                    <div className="stat-label">{stat.label}</div>
-                  </div>
-                ))}
+                {personal.stats.map((stat) => {
+                  const CardElement = stat.link ? Link : 'div';
+                  return (
+                    <CardElement
+                      key={stat.id}
+                      to={stat.link}
+                      className={`portfolio-card highlight-stat-card ${stat.link ? 'highlight-stat-card-clickable' : ''}`}
+                      aria-label={`Navigate to ${stat.label}`}
+                    >
+                      <div className={`stat-number font-mono ${stat.value.length > 5 ? 'stat-text-compact' : ''}`}>
+                        {stat.value}
+                      </div>
+                      <div className="stat-label">{stat.label}</div>
+                    </CardElement>
+                  );
+                })}
               </div>
 
               {/* Academic Credential Card */}

@@ -140,14 +140,22 @@ export default function Hero() {
 
               {/* Quick Metrics Bar */}
               <div className="hero-metrics-strip">
-                {personal.stats.map((stat) => (
-                  <div key={stat.id} className="hero-metric-item">
-                    <span className={`metric-val font-mono ${stat.value.length > 5 ? 'metric-val-compact' : ''}`}>
-                      {stat.value}
-                    </span>
-                    <span className="metric-lbl">{stat.label}</span>
-                  </div>
-                ))}
+                {personal.stats.map((stat) => {
+                  const ItemElement = stat.link ? Link : 'div';
+                  return (
+                    <ItemElement
+                      key={stat.id}
+                      to={stat.link}
+                      className={`hero-metric-item ${stat.link ? 'hero-metric-item-clickable' : ''}`}
+                      aria-label={`Navigate to ${stat.label}`}
+                    >
+                      <span className={`metric-val font-mono ${stat.value.length > 5 ? 'metric-val-compact' : ''}`}>
+                        {stat.value}
+                      </span>
+                      <span className="metric-lbl">{stat.label}</span>
+                    </ItemElement>
+                  );
+                })}
               </div>
             </div>
 
