@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Mail, FolderGit2, ShieldCheck, Terminal, Clock } from 'lucide-react';
+import { Mail, FolderGit2, ShieldCheck, Terminal } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
 import PageNav from './PageNav';
 
@@ -83,9 +83,6 @@ export default function Hero() {
             <div className="hero-content">
               {/* Current Status Card — Sleek Cyber Luxury Live Status */}
               <div className="hero-status-card">
-                <div className="status-card-icon-box">
-                  <Clock size={16} className="text-copper" />
-                </div>
                 <div className="status-card-text">
                   <div className="status-card-meta font-mono">
                     <span className="status-live-dot" />
