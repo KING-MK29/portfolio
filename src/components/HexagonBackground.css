@@ -20,14 +20,14 @@
 .hex-base-void {
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 90% 70% at 50% 25%,
-      #131713 0%,
-      #0e1014 60%,
-      #0a0b0d 100%);
+  background: radial-gradient(ellipse 85% 65% at 50% 25%,
+      #141713 0%,
+      #101216 55%,
+      #0E1013 100%);
   z-index: 1;
 }
 
-/* 2. Real-Time Moving Tech Acid Lime & Silver Light Canvas (Razor-Sharp & Distinct Hexagons) */
+/* 2. Real-Time Moving Tech Acid Lime & Silver Light Canvas (Subtle & Elegant) */
 .hex-circuit-canvas {
   position: absolute;
   inset: 0;
@@ -36,18 +36,18 @@
   z-index: 2;
   pointer-events: none;
   mix-blend-mode: screen;
-  filter: brightness(1.35) contrast(1.15);
+  filter: brightness(1.15) contrast(1.05);
   transform: translate3d(0, 0, 0);
 }
 
-/* 3. Vignette Darkening for Maximum Content Readability (Crystal-Clear Hexagon Visibility) */
+/* 3. Vignette Darkening for Maximum Content Readability */
 .hex-vignette-overlay {
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 95% 85% at 50% 45%,
-      transparent 0%,
-      rgba(14, 16, 19, 0.08) 70%,
-      rgba(14, 16, 19, 0.35) 100%);
+  background: radial-gradient(ellipse 90% 80% at 50% 50%,
+      rgba(14, 16, 19, 0.05) 0%,
+      rgba(14, 16, 19, 0.35) 65%,
+      rgba(14, 16, 19, 0.75) 100%);
   z-index: 3;
   pointer-events: none;
 }

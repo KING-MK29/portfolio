@@ -118,9 +118,9 @@ export default function HexagonCircuit() {
       nodes = Array.from(nodeMap.values());
       edges = edgesList;
 
-      // Seed initial tech pulses (vibrant & visible: 6 on mobile, 10 on desktop)
+      // Seed initial tech pulses (strictly a few: 2 on mobile, 3 on desktop)
       pulses = [];
-      const initialPulseCount = width < 768 ? 6 : 10;
+      const initialPulseCount = width < 768 ? 2 : 3;
       for (let i = 0; i < initialPulseCount; i++) {
         spawnPulse();
       }
@@ -163,12 +163,12 @@ export default function HexagonCircuit() {
       const dy = toNode.y - fromNode.y;
       const length = Math.sqrt(dx * dx + dy * dy) || R;
 
-      // Tech Acid Lime & Electric Silver pulse shades (vibrant & high visibility)
+      // Tech Acid Lime & Silver pulse shades
       const colors = [
-        { primary: '#D4FF00', trailColor: 'rgba(212, 255, 0, 0.75)' },
-        { primary: '#E2FF33', trailColor: 'rgba(226, 255, 51, 0.75)' },
-        { primary: '#FFFFFF', trailColor: 'rgba(255, 255, 255, 0.70)' },
-        { primary: '#CCFF00', trailColor: 'rgba(204, 255, 0, 0.75)' },
+        { primary: '#D4FF00', trailColor: 'rgba(212, 255, 0, 0.50)' },
+        { primary: '#E2FF33', trailColor: 'rgba(226, 255, 51, 0.50)' },
+        { primary: '#FFFFFF', trailColor: 'rgba(255, 255, 255, 0.45)' },
+        { primary: '#CCFF00', trailColor: 'rgba(204, 255, 0, 0.50)' },
       ];
       const colorScheme = colors[Math.floor(Math.random() * colors.length)];
 
@@ -177,13 +177,13 @@ export default function HexagonCircuit() {
         toNode,
         prevNodeId: fromNode.id,
         progress: Math.random() * 0.3,
-        // Fast, energetic cyber gliding movement (speed ~2.6 to 3.4 px/frame)
-        speed: (Math.random() * 0.8 + 2.6) * speedMultiplier,
+        // Smooth, agile cyber travel speed (~1.8 to 2.2 px/frame)
+        speed: (Math.random() * 0.4 + 1.8) * speedMultiplier,
         length,
         colorScheme,
         trail: [],
-        maxTrail: 10,
-        life: Math.floor(Math.random() * 320 + 260),
+        maxTrail: 6,
+        life: Math.floor(Math.random() * 340 + 260),
         branchChance: 0,
       });
     };
@@ -200,34 +200,24 @@ export default function HexagonCircuit() {
     const render = () => {
       ctx.clearRect(0, 0, width, height);
 
-      // 1. Draw crisp, clearly visible honeycomb seams & vertices (Acid Lime tint)
+      // 1. Draw subtle, elegant honeycomb seams (Lite & calm visibility)
       ctx.beginPath();
       for (let i = 0; i < edges.length; i++) {
         const e = edges[i];
         ctx.moveTo(e.nodeA.x, e.nodeA.y);
         ctx.lineTo(e.nodeB.x, e.nodeB.y);
       }
-      ctx.strokeStyle = 'rgba(212, 255, 0, 0.40)';
-      ctx.lineWidth = 1.4;
+      ctx.strokeStyle = 'rgba(212, 255, 0, 0.12)';
+      ctx.lineWidth = 1.0;
       ctx.shadowBlur = 0;
       ctx.stroke();
 
-      // Subtle vertex joint nodes for high-definition hexagon grid structure
-      ctx.beginPath();
-      for (let i = 0; i < nodes.length; i++) {
-        const n = nodes[i];
-        ctx.moveTo(n.x + 1.2, n.y);
-        ctx.arc(n.x, n.y, 1.4, 0, Math.PI * 2);
-      }
-      ctx.fillStyle = 'rgba(212, 255, 0, 0.60)';
-      ctx.fill();
+      // 2. Desired minimal count (only a few: 2 on mobile, 3 on desktop)
+      const desiredCount = width < 768 ? 2 : 3;
 
-      // 2. Desired active count (6 on mobile, 10 on desktop)
-      const desiredCount = width < 768 ? 6 : 10;
-
-      // 3. Energetic periodic pulse spawn (every 2.4s)
+      // 3. Gentle periodic pulse spawn (every 5.0s, only if count is below minimal)
       const now = performance.now();
-      if (now - lastAutoSurgeTime > 2400) {
+      if (now - lastAutoSurgeTime > 5000) {
         lastAutoSurgeTime = now;
         if (nodes.length > 0 && pulses.length < desiredCount) {
           const randomNode = nodes[Math.floor(Math.random() * nodes.length)];
@@ -305,8 +295,8 @@ export default function HexagonCircuit() {
             ctx.lineTo(p.trail[t].x, p.trail[t].y);
           }
           ctx.strokeStyle = p.colorScheme.trailColor;
-          ctx.lineWidth = 2.0;
-          ctx.shadowBlur = 6;
+          ctx.lineWidth = 1.3;
+          ctx.shadowBlur = 4;
           ctx.shadowColor = p.colorScheme.primary;
           ctx.lineCap = 'round';
           ctx.stroke();
@@ -314,17 +304,17 @@ export default function HexagonCircuit() {
 
         // Outer glow dot
         ctx.beginPath();
-        ctx.arc(headX, headY, 3.4, 0, Math.PI * 2);
+        ctx.arc(headX, headY, 2.2, 0, Math.PI * 2);
         ctx.fillStyle = p.colorScheme.primary;
-        ctx.shadowBlur = 14;
+        ctx.shadowBlur = 8;
         ctx.shadowColor = p.colorScheme.primary;
         ctx.fill();
 
         // Bright white center core for crisp visibility
         ctx.beginPath();
-        ctx.arc(headX, headY, 2.0, 0, Math.PI * 2);
+        ctx.arc(headX, headY, 1.3, 0, Math.PI * 2);
         ctx.fillStyle = '#FFFFFF';
-        ctx.shadowBlur = 4;
+        ctx.shadowBlur = 2;
         ctx.shadowColor = '#FFFFFF';
         ctx.fill();
 

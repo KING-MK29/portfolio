@@ -228,7 +228,11 @@
   align-items: center;
   padding: calc(var(--nav-height) + 40px) 0 60px 0;
   overflow: hidden;
-  background: transparent;
+  background:
+    radial-gradient(ellipse 65% 55% at 15% 20%, rgba(212, 255, 0, 0.209) 0%, rgba(14, 16, 19, 0) 65%),
+    radial-gradient(ellipse 60% 50% at 85% 40%, rgba(226, 232, 240, 0.171) 0%, rgba(14, 16, 19, 0) 60%),
+    radial-gradient(circle 500px at 50% 85%, rgba(212, 255, 0, 0.095) 0%, rgba(14, 16, 19, 0) 70%),
+    rgba(14, 16, 19, 0.45);
 }
 
 .hero-glow-1 {
@@ -1727,9 +1731,13 @@
    -------------------------------------------------------------------------- */
 .about-section {
   position: relative;
-  background: transparent;
-  border-top: 1px solid rgba(212, 255, 0, 0.14);
-  border-bottom: 1px solid rgba(141, 153, 174, 0.08);
+  background:
+    radial-gradient(circle 500px at 5% 45%, rgba(212, 255, 0, 0.16) 0%, rgba(14, 16, 19, 0) 60%),
+    radial-gradient(circle 480px at 95% 75%, rgba(226, 232, 240, 0.14) 0%, rgba(14, 16, 19, 0) 55%),
+    linear-gradient(180deg, rgba(14, 16, 19, 0.5) 0%, rgba(23, 26, 32, 0.65) 18%, rgba(26, 30, 38, 0.65) 82%, rgba(14, 16, 19, 0.5) 100%);
+  border-top: 1px solid rgba(212, 255, 0, 0.22);
+  border-bottom: 1px solid rgba(141, 153, 174, 0.12);
+  box-shadow: inset 0 25px 45px -25px rgba(212, 255, 0, 0.18), inset 0 -25px 45px -25px rgba(212, 255, 0, 0.12);
   overflow: hidden;
 }
 
@@ -1836,9 +1844,9 @@
   text-decoration: none;
   color: inherit;
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-              border-color 0.25s ease,
-              box-shadow 0.25s ease,
-              background-color 0.25s ease;
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    background-color 0.25s ease;
 }
 
 .highlight-stat-card.highlight-stat-card-clickable {
@@ -1987,9 +1995,13 @@
    -------------------------------------------------------------------------- */
 .skills-section {
   position: relative;
-  background: transparent;
-  border-top: 1px solid rgba(141, 153, 174, 0.08);
-  border-bottom: 1px solid rgba(141, 153, 174, 0.08);
+  background:
+    radial-gradient(ellipse 70% 45% at 50% 20%, rgba(226, 232, 240, 0.16) 0%, rgba(14, 16, 19, 0) 65%),
+    radial-gradient(circle 520px at 15% 75%, rgba(212, 255, 0, 0.14) 0%, rgba(14, 16, 19, 0) 60%),
+    radial-gradient(circle 520px at 85% 75%, rgba(0, 245, 212, 0.12) 0%, rgba(14, 16, 19, 0) 60%),
+    rgba(14, 16, 19, 0.5);
+  border-top: 1px solid rgba(141, 153, 174, 0.12);
+  border-bottom: 1px solid rgba(141, 153, 174, 0.12);
   overflow: hidden;
   padding-bottom: 90px;
 }
@@ -2402,6 +2414,7 @@
     opacity: 0;
     transform: translateX(-45px);
   }
+
   100% {
     opacity: 1;
     transform: translateX(0);
@@ -2501,9 +2514,11 @@
     opacity: 0;
     transform: translateX(-40px) scale(0.92);
   }
+
   65% {
     transform: translateX(4px) scale(1.02);
   }
+
   100% {
     opacity: 1;
     transform: translateX(0) scale(1);
@@ -2625,6 +2640,7 @@
     transform: translateX(45px) scale(0.97);
     filter: blur(4px);
   }
+
   100% {
     opacity: 1;
     transform: translateX(0) scale(1);
@@ -2801,6 +2817,7 @@
     opacity: 0;
     transform: translateY(12px) scale(0.985);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0) scale(1);
@@ -3214,9 +3231,13 @@
    -------------------------------------------------------------------------- */
 .certificates-section {
   position: relative;
-  background: transparent;
-  border-top: 1px solid rgba(212, 255, 0, 0.14);
-  border-bottom: 1px solid rgba(141, 153, 174, 0.08);
+  background:
+    radial-gradient(ellipse 60% 50% at 20% 35%, rgba(212, 255, 0, 0.18) 0%, rgba(14, 16, 19, 0) 60%),
+    radial-gradient(ellipse 60% 50% at 80% 65%, rgba(226, 232, 240, 0.15) 0%, rgba(14, 16, 19, 0) 60%),
+    linear-gradient(180deg, rgba(14, 16, 19, 0.5) 0%, rgba(22, 25, 30, 0.65) 15%, rgba(25, 28, 34, 0.65) 85%, rgba(14, 16, 19, 0.5) 100%);
+  border-top: 1px solid rgba(212, 255, 0, 0.22);
+  border-bottom: 1px solid rgba(141, 153, 174, 0.12);
+  box-shadow: inset 0 25px 40px -25px rgba(212, 255, 0, 0.14), inset 0 -25px 40px -25px rgba(212, 255, 0, 0.12);
   overflow: hidden;
   padding-bottom: 90px;
 }
@@ -4329,9 +4350,13 @@
    -------------------------------------------------------------------------- */
 .projects-section {
   position: relative;
-  background: transparent;
-  border-top: 1px solid rgba(141, 153, 174, 0.08);
-  border-bottom: 1px solid rgba(141, 153, 174, 0.08);
+  background:
+    radial-gradient(ellipse 65% 55% at 85% 25%, rgba(212, 255, 0, 0.2) 0%, rgba(14, 16, 19, 0) 60%),
+    radial-gradient(ellipse 60% 50% at 15% 75%, rgba(226, 232, 240, 0.16) 0%, rgba(14, 16, 19, 0) 60%),
+    radial-gradient(circle 600px at 50% 50%, rgba(27, 30, 35, 0.45) 0%, rgba(14, 16, 19, 0) 75%),
+    rgba(14, 16, 19, 0.5);
+  border-top: 1px solid rgba(141, 153, 174, 0.12);
+  border-bottom: 1px solid rgba(141, 153, 174, 0.12);
   overflow: hidden;
 }
 
@@ -4721,9 +4746,12 @@
    -------------------------------------------------------------------------- */
 .resume-section {
   position: relative;
-  background: transparent;
-  border-top: 1px solid rgba(212, 255, 0, 0.14);
-  border-bottom: 1px solid rgba(212, 255, 0, 0.14);
+  background:
+    radial-gradient(circle 550px at 50% 50%, rgba(212, 255, 0, 0.26) 0%, rgba(226, 232, 240, 0.12) 40%, rgba(14, 16, 19, 0) 70%),
+    linear-gradient(180deg, rgba(14, 16, 19, 0.5) 0%, rgba(23, 26, 32, 0.65) 22%, rgba(28, 32, 40, 0.7) 50%, rgba(23, 26, 32, 0.65) 78%, rgba(14, 16, 19, 0.5) 100%);
+  border-top: 1px solid rgba(212, 255, 0, 0.28);
+  border-bottom: 1px solid rgba(212, 255, 0, 0.22);
+  box-shadow: inset 0 0 70px rgba(212, 255, 0, 0.14);
   overflow: hidden;
 }
 
@@ -5330,8 +5358,12 @@
    -------------------------------------------------------------------------- */
 .contact-section {
   position: relative;
-  background: transparent;
-  border-top: 1px solid rgba(141, 153, 174, 0.08);
+  background:
+    radial-gradient(circle 520px at 20% 35%, rgba(212, 255, 0, 0.2) 0%, rgba(14, 16, 19, 0) 60%),
+    radial-gradient(circle 500px at 80% 65%, rgba(226, 232, 240, 0.16) 0%, rgba(14, 16, 19, 0) 60%),
+    radial-gradient(circle 420px at 50% 90%, rgba(212, 255, 0, 0.1) 0%, rgba(14, 16, 19, 0) 65%),
+    rgba(14, 16, 19, 0.5);
+  border-top: 1px solid rgba(141, 153, 174, 0.12);
   overflow: hidden;
 }
 
@@ -5920,9 +5952,7 @@
 
 /* Page Bottom Navigation Bar */
 .page-bottom-nav {
-  background: rgba(22, 24, 29, 0.82);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  background: var(--bg-card);
   border-top: 1px solid var(--border-card);
   padding: 24px 0;
   margin-top: auto;
