@@ -9,7 +9,6 @@ import {
   Sparkles,
   Layers
 } from 'lucide-react';
-import { GithubIcon } from './Icons';
 import { portfolioData } from '../data/portfolioData';
 import Modal from './Modal';
 import PageNav from './PageNav';
@@ -152,17 +151,6 @@ export default function Projects() {
                     >
                       <span>Architecture</span>
                     </button>
-
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn btn-sm btn-secondary project-action-btn"
-                      aria-label={`View source code on GitHub`}
-                    >
-                      <GithubIcon size={15} />
-                      <span>Code</span>
-                    </a>
                   </div>
                 </div>
               </div>
