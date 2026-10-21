@@ -151,7 +151,7 @@ export const portfolioData = {
       category: "SIH Hackathon & GovTech",
       featured: true,
       year: "2026",
-      status: "SIH In Progress",
+      status: "In Progress",
       description: "Team project engineered for Smart India Hackathon (SIH) — successfully advanced to the next stage and actively in progress. A transparent MPLADS governance and expenditure monitoring platform with authority-separated role workspaces (MP, Authority Board, Officer, Public), geo-tagged evidence tracking, and AI anomaly detection.",
       image: getAssetUrl('/assets/project_prahari.jpg'),
       tech: ["Next.js", "React", "Tailwind CSS", "AI Analytics", "Render"],
@@ -163,7 +163,7 @@ export const portfolioData = {
         "Built AI Monitor and Fraud Investigator modules to detect anomalies, duplicate proposals, and fund misallocations."
       ],
       github: "https://github.com",
-      demo: "https://prahari-demo-lcem.onrender.com/"
+      demo: null
     }
   ],
 

@@ -127,7 +127,12 @@ export default function Projects() {
 
                   {/* Action Links */}
                   <div className="project-actions-row">
-                    {project.demo && project.demo !== 'https://github.com' && (
+                    {project.status?.toLowerCase().includes('in progress') ? (
+                      <div className="project-in-progress-pill font-mono">
+                        <span className="in-progress-dot" />
+                        <span>In Progress</span>
+                      </div>
+                    ) : project.demo && project.demo !== 'https://github.com' ? (
                       <a
                         href={project.demo}
                         target="_blank"
@@ -138,7 +143,7 @@ export default function Projects() {
                         <ExternalLink size={14} />
                         <span>Live Demo</span>
                       </a>
-                    )}
+                    ) : null}
 
                     <button
                       type="button"
@@ -238,7 +243,12 @@ export default function Projects() {
 
                 {/* Modal Action Buttons */}
                 <div className="modal-footer-actions">
-                  {activeProjectModal.demo && activeProjectModal.demo !== 'https://github.com' && (
+                  {activeProjectModal.status?.toLowerCase().includes('in progress') ? (
+                    <div className="modal-in-progress-banner font-mono">
+                      <span className="in-progress-dot" />
+                      <span>Actively In Progress • Smart India Hackathon (SIH)</span>
+                    </div>
+                  ) : activeProjectModal.demo && activeProjectModal.demo !== 'https://github.com' ? (
                     <a
                       href={activeProjectModal.demo}
                       target="_blank"
@@ -248,7 +258,7 @@ export default function Projects() {
                       <ExternalLink size={16} />
                       <span>Launch Live Website</span>
                     </a>
-                  )}
+                  ) : null}
 
                   <a
                     href={activeProjectModal.github}
