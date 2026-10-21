@@ -118,9 +118,9 @@ export default function HexagonCircuit() {
       nodes = Array.from(nodeMap.values());
       edges = edgesList;
 
-      // Seed initial tech pulses (vibrant & visible: 5 on mobile, 8 on desktop)
+      // Seed initial tech pulses (vibrant & visible: 6 on mobile, 10 on desktop)
       pulses = [];
-      const initialPulseCount = width < 768 ? 5 : 8;
+      const initialPulseCount = width < 768 ? 6 : 10;
       for (let i = 0; i < initialPulseCount; i++) {
         spawnPulse();
       }
@@ -207,8 +207,8 @@ export default function HexagonCircuit() {
         ctx.moveTo(e.nodeA.x, e.nodeA.y);
         ctx.lineTo(e.nodeB.x, e.nodeB.y);
       }
-      ctx.strokeStyle = 'rgba(212, 255, 0, 0.32)';
-      ctx.lineWidth = 1.35;
+      ctx.strokeStyle = 'rgba(212, 255, 0, 0.40)';
+      ctx.lineWidth = 1.4;
       ctx.shadowBlur = 0;
       ctx.stroke();
 
@@ -217,13 +217,13 @@ export default function HexagonCircuit() {
       for (let i = 0; i < nodes.length; i++) {
         const n = nodes[i];
         ctx.moveTo(n.x + 1.2, n.y);
-        ctx.arc(n.x, n.y, 1.2, 0, Math.PI * 2);
+        ctx.arc(n.x, n.y, 1.4, 0, Math.PI * 2);
       }
-      ctx.fillStyle = 'rgba(212, 255, 0, 0.40)';
+      ctx.fillStyle = 'rgba(212, 255, 0, 0.60)';
       ctx.fill();
 
-      // 2. Desired active count (5 on mobile, 8 on desktop)
-      const desiredCount = width < 768 ? 5 : 8;
+      // 2. Desired active count (6 on mobile, 10 on desktop)
+      const desiredCount = width < 768 ? 6 : 10;
 
       // 3. Energetic periodic pulse spawn (every 2.4s)
       const now = performance.now();

@@ -19,12 +19,11 @@
 /* 1. Deep Void Foundation - Deep Charcoal (#0E1013) with subtle Lime-Charcoal center */
 .hex-base-void {
   position: absolute;
-  inset: -10px;
-  background: radial-gradient(ellipse 80% 60% at 50% 25%,
-      #151914 0%,
-      #111317 55%,
-      #0E1013 100%);
-  filter: blur(8px);
+  inset: 0;
+  background: radial-gradient(ellipse 90% 70% at 50% 25%,
+      #131713 0%,
+      #0e1014 60%,
+      #0a0b0d 100%);
   z-index: 1;
 }
 
@@ -37,7 +36,7 @@
   z-index: 2;
   pointer-events: none;
   mix-blend-mode: screen;
-  filter: brightness(1.28) contrast(1.15);
+  filter: brightness(1.35) contrast(1.15);
   transform: translate3d(0, 0, 0);
 }
 
@@ -45,10 +44,10 @@
 .hex-vignette-overlay {
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 85% 75% at 50% 50%,
-      rgba(14, 16, 19, 0.02) 0%,
-      rgba(14, 16, 19, 0.25) 60%,
-      rgba(14, 16, 19, 0.70) 100%);
+  background: radial-gradient(ellipse 95% 85% at 50% 45%,
+      transparent 0%,
+      rgba(14, 16, 19, 0.08) 70%,
+      rgba(14, 16, 19, 0.35) 100%);
   z-index: 3;
   pointer-events: none;
 }
