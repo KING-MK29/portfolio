@@ -36,7 +36,7 @@ export const portfolioData = {
     ],
     stats: [
       { id: "projects", label: "Client & Team Projects", value: "02" },
-      { id: "sih", label: "SIH Hackathon", value: "Advanced" },
+      { id: "credentials", label: "Verified Credentials", value: "06+" },
       { id: "languages", label: "Core Languages", value: "Python, C++, Java" }
     ],
     coreValues: [
