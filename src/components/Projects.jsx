@@ -260,17 +260,6 @@ export default function Projects() {
                     </a>
                   ) : null}
 
-                  <a
-                    href={activeProjectModal.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn btn-secondary"
-                  >
-                    <GithubIcon size={16} />
-                    <span>Explore Repository on GitHub</span>
-                    <ExternalLink size={14} />
-                  </a>
-
                   <button
                     type="button"
                     onClick={() => setActiveProjectModal(null)}
