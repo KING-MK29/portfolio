@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Mail, FolderGit2, ShieldCheck, Terminal } from 'lucide-react';
+import { Mail, FolderGit2, ShieldCheck, Terminal, Clock } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
 import PageNav from './PageNav';
 
@@ -81,10 +81,15 @@ export default function Hero() {
           <div className="hero-grid">
             {/* Left Column: Hero Content */}
             <div className="hero-content">
-              {/* Status Pill Badge */}
-              <div className="hero-badge">
-                <span className="badge-pulse-dot" />
-                <span className="badge-text">{personal.statusBadge}</span>
+              {/* Current Status Card */}
+              <div className="hero-status-card">
+                <div className="channel-icon-box">
+                  <Clock size={20} className="text-copper" />
+                </div>
+                <div className="channel-info">
+                  <span className="channel-label font-mono">CURRENT STATUS</span>
+                  <span className="channel-value">{personal.statusBadge}</span>
+                </div>
               </div>
 
               {/* Main Title */}

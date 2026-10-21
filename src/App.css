@@ -312,6 +312,68 @@
   }
 }
 
+.hero-status-card {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 20px 10px 12px;
+  border-radius: 12px;
+  background: rgba(18, 21, 26, 0.85);
+  border: 1px solid var(--border-card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  margin-bottom: 26px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  transition: all var(--transition-fast);
+  width: fit-content;
+}
+
+.hero-status-card:hover {
+  border-color: var(--accent-copper);
+  background: rgba(22, 26, 32, 0.95);
+  box-shadow: 0 6px 24px rgba(212, 255, 0, 0.18);
+  transform: translateY(-2px);
+}
+
+.hero-status-card .channel-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: rgba(212, 255, 0, 0.12);
+  border: 1.5px solid rgba(212, 255, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.hero-status-card .channel-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  text-align: left;
+}
+
+.hero-status-card .channel-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+}
+
+.hero-status-card .channel-value {
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+@media (max-width: 960px) {
+  .hero-status-card {
+    margin: 0 auto 24px auto;
+  }
+}
+
 .hero-badge {
   display: inline-flex;
   align-items: center;
