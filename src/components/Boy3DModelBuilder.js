@@ -79,20 +79,20 @@ export function createModularBoyCharacter() {
   });
 
   const denimMat = new THREE.MeshStandardMaterial({
-    color: 0x274B7F, // Classic denim blue
+    color: 0x18181C, // Sleek black denim
     roughness: 0.68,
     metalness: 0.02,
     name: 'Denim_Jeans_Mat'
   });
 
   const denimCuffMat = new THREE.MeshStandardMaterial({
-    color: 0xA6B9D0, // Lighter folded cuff underside
+    color: 0x2A2A30, // Charcoal folded cuff
     roughness: 0.75,
     name: 'Denim_Cuff_Mat'
   });
 
   const beltMat = new THREE.MeshStandardMaterial({
-    color: 0x331E12, // Dark brown leather belt
+    color: 0x201510, // Dark leather belt
     roughness: 0.6,
     name: 'Belt_Leather_Mat'
   });
@@ -105,7 +105,7 @@ export function createModularBoyCharacter() {
   });
 
   const sneakerRedMat = new THREE.MeshStandardMaterial({
-    color: 0xD4FF00, // Vibrant cyber acid lime sneakers
+    color: 0xD4FF00, // Acid lime sneakers matching theme
     roughness: 0.45,
     name: 'Sneaker_AcidLime_Mat'
   });

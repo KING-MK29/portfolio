@@ -17,7 +17,7 @@ import { TechLogo } from './TechLogos';
 /* ==========================================================================
    CUSTOM CATEGORY SQUIRCLE BADGES (Exact Match to User's Uploaded Badges)
    ========================================================================== */
-export function CategoryBadgeIcon({ categoryId, size = 32, glow = true }) {
+export function CategoryBadgeIcon({ categoryId, size = 32, glow = false }) {
   switch (categoryId) {
     case 'programming-languages':
       return (
@@ -30,7 +30,7 @@ export function CategoryBadgeIcon({ categoryId, size = 32, glow = true }) {
           strokeWidth="2.2"
           strokeLinecap="round"
           strokeLinejoin="round"
-          style={{ filter: glow ? 'drop-shadow(0 0 7.6px #D4FF00)' : 'none' }}
+          style={{ filter: 'none' }}
         >
           <polyline points="16 18 22 12 16 6" />
           <polyline points="8 6 2 12 8 18" />
@@ -50,7 +50,7 @@ export function CategoryBadgeIcon({ categoryId, size = 32, glow = true }) {
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
-          style={{ filter: glow ? 'drop-shadow(0 0 7.6px #00F5D4)' : 'none' }}
+          style={{ filter: 'none' }}
         >
           <circle cx="12" cy="12" r="9" />
           <ellipse cx="12" cy="12" rx="4.5" ry="9" />
@@ -72,7 +72,7 @@ export function CategoryBadgeIcon({ categoryId, size = 32, glow = true }) {
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
-          style={{ filter: glow ? 'drop-shadow(0 0 7.6px #B366FF)' : 'none' }}
+          style={{ filter: 'none' }}
         >
           <ellipse cx="12" cy="5.5" rx="8" ry="3" fill="currentColor" fillOpacity="0.25" />
           <path d="M4 5.5v5.5c0 1.66 3.58 3 8 3s8-1.34 8-3V5.5" />
@@ -89,7 +89,7 @@ export function CategoryBadgeIcon({ categoryId, size = 32, glow = true }) {
           height={size}
           viewBox="0 0 24 24"
           fill="currentColor"
-          style={{ filter: glow ? 'drop-shadow(0 0 7.6px #FF8A3D)' : 'none' }}
+          style={{ filter: 'none' }}
         >
           <path
             fillRule="evenodd"
@@ -107,7 +107,7 @@ export function CategoryBadgeIcon({ categoryId, size = 32, glow = true }) {
           height={size}
           viewBox="0 0 24 24"
           fill="currentColor"
-          style={{ filter: glow ? 'drop-shadow(0 0 7.6px #38BDF8)' : 'none' }}
+          style={{ filter: 'none' }}
         >
           <rect x="4" y="11" width="4" height="9" rx="1.5" />
           <rect x="10" y="7" width="4" height="13" rx="1.5" />
@@ -123,7 +123,7 @@ export function CategoryBadgeIcon({ categoryId, size = 32, glow = true }) {
           height={size}
           viewBox="0 0 24 24"
           fill="currentColor"
-          style={{ filter: glow ? 'drop-shadow(0 0 7.6px #F43F5E)' : 'none' }}
+          style={{ filter: 'none' }}
         >
           <path d="M12 2.5l2.85 5.77 6.37.93-4.61 4.49 1.09 6.34L12 17.04l-5.7 2.99 1.09-6.34-4.61-4.49 6.37-.93L12 2.5z" />
         </svg>
@@ -145,9 +145,9 @@ export const SKILL_CATEGORIES = [
     color: '#D4FF00',
     colorRgb: '212, 255, 0',
     tagline: 'Core algorithmic languages for distributed architectures, systems, and backend logic',
-    bgGradient: 'linear-gradient(145deg, #162410 0%, #0D140A 100%)',
+    bgGradient: 'linear-gradient(145deg, #161D0A 0%, #080C04 100%)',
     borderColor: 'rgba(212, 255, 0, 0.45)',
-    glowColor: 'rgba(212, 255, 0, 0.3325)',
+    glowColor: 'rgba(212, 255, 0, 0.33)',
     skills: [
       {
         id: 'c',
@@ -458,12 +458,12 @@ export const SKILL_CATEGORIES = [
     id: 'data-science-analytics',
     title: 'Data Science & Analytics',
     shortTitle: 'Data Science',
-    color: '#38BDF8',
-    colorRgb: '56, 189, 248',
+    color: '#E0A96D',
+    colorRgb: '224, 169, 109',
     tagline: 'Machine learning pipelines, deep learning neural networks, computer vision, and analytics',
-    bgGradient: 'linear-gradient(145deg, #0A1C36 0%, #050E1C 100%)',
-    borderColor: 'rgba(56, 189, 248, 0.45)',
-    glowColor: 'rgba(56, 189, 248, 0.3325)',
+    bgGradient: 'linear-gradient(145deg, #1C150E 0%, #080604 100%)',
+    borderColor: 'rgba(224, 169, 109, 0.45)',
+    glowColor: 'rgba(224, 169, 109, 0.33)',
     skills: [
       {
         id: 'scikit-learn',

@@ -71,7 +71,7 @@ export default function BlueprintSheetModal({ isOpen, onClose }) {
     scene.add(char.rootGroup);
 
     // CAD Blueprint Floor Grid
-    const grid = new THREE.GridHelper(8, 24, 0xD4FF00, 0x2A2E38);
+    const grid = new THREE.GridHelper(8, 24, 0xD4FF00, 0x181818);
     grid.position.y = -1.55;
     grid.material.opacity = 0.45;
     grid.material.transparent = true;
@@ -85,7 +85,7 @@ export default function BlueprintSheetModal({ isOpen, onClose }) {
     dirLight1.position.set(3.5, 4.5, 3.5);
     scene.add(dirLight1);
 
-    const dirLight2 = new THREE.DirectionalLight(0x7fb8f5, 0.7);
+    const dirLight2 = new THREE.DirectionalLight(0xffffff, 0.7);
     dirLight2.position.set(-3.5, 2.0, -2.0);
     scene.add(dirLight2);
 
@@ -353,142 +353,142 @@ export default function BlueprintSheetModal({ isOpen, onClose }) {
         {/* Master 3-Panel 3D WebGL Blueprint Grid */}
         {viewType === '3d_studio' && (
           <div className="blueprint-sheet-body">
-          {/* LEFT PANEL: Assembled Reference */}
-          <div className="blueprint-panel panel-assembled">
-            <div className="panel-inner-frame">
-              {/* Corner framing brackets */}
-              <div className="cad-corner top-left" />
-              <div className="cad-corner top-right" />
-              <div className="cad-corner bottom-left" />
-              <div className="cad-corner bottom-right" />
+            {/* LEFT PANEL: Assembled Reference */}
+            <div className="blueprint-panel panel-assembled">
+              <div className="panel-inner-frame">
+                {/* Corner framing brackets */}
+                <div className="cad-corner top-left" />
+                <div className="cad-corner top-right" />
+                <div className="cad-corner bottom-left" />
+                <div className="cad-corner bottom-right" />
 
-              <div className="panel-title-tag font-mono">ASSEMBLED REFERENCE</div>
+                <div className="panel-title-tag font-mono">ASSEMBLED REFERENCE</div>
 
-              {/* 3D Assembled Canvas */}
-              <div ref={leftCanvasRef} className="panel-3d-canvas" />
+                {/* 3D Assembled Canvas */}
+                <div ref={leftCanvasRef} className="panel-3d-canvas" />
 
-              {/* Texture & Material Swatches Palette */}
-              <div className="blueprint-swatches-box font-mono">
-                <div className="swatch-item">
-                  <span className="swatch-color" style={{ background: '#3E2316' }} />
-                  <span className="swatch-label">Hair Brown</span>
+                {/* Texture & Material Swatches Palette */}
+                <div className="blueprint-swatches-box font-mono">
+                  <div className="swatch-item">
+                    <span className="swatch-color" style={{ background: '#3E2316' }} />
+                    <span className="swatch-label">Hair Brown</span>
+                  </div>
+                  <div className="swatch-item">
+                    <span className="swatch-color" style={{ background: '#F5F6F8' }} />
+                    <span className="swatch-label">White Cotton</span>
+                  </div>
+                  <div className="swatch-item">
+                    <span className="swatch-color" style={{ background: '#18181C' }} />
+                    <span className="swatch-label">Black Denim</span>
+                  </div>
+                  <div className="swatch-item">
+                    <span className="swatch-color" style={{ background: '#D4FF00' }} />
+                    <span className="swatch-label">Acid Lime</span>
+                  </div>
                 </div>
-                <div className="swatch-item">
-                  <span className="swatch-color" style={{ background: '#F5F6F8' }} />
-                  <span className="swatch-label">White Cotton</span>
+              </div>
+            </div>
+
+            {/* CENTER PANEL: Modular 3D CAD Blueprint (Exploded Components) */}
+            <div className="blueprint-panel panel-modular-cad">
+              <div className="panel-inner-frame">
+                <div className="cad-corner top-left" />
+                <div className="cad-corner top-right" />
+                <div className="cad-corner bottom-left" />
+                <div className="cad-corner bottom-right" />
+
+                <div className="panel-title-tag font-mono">
+                  MODULAR 3D CAD COMPONENTS • EXPLODED LAYOUT
                 </div>
-                <div className="swatch-item">
-                  <span className="swatch-color" style={{ background: '#2B4C7E' }} />
-                  <span className="swatch-label">Denim Jeans</span>
+
+                {/* Center 3D Interactive Canvas */}
+                <div ref={centerCanvasRef} className="panel-3d-canvas center-canvas" />
+
+                {/* Floating Technical CAD Callouts */}
+                <div className="blueprint-sheet-labels font-mono">
+                  <div className="cad-label-item tag-head">
+                    <span className="dot" />
+                    <span>HEAD ASSEMBLY [HAIR, FACE, NECK]</span>
+                  </div>
+                  <div className="cad-label-item tag-torso">
+                    <span className="dot" />
+                    <span>TORSO & T-SHIRT [CREWNECK, POCKET]</span>
+                  </div>
+                  <div className="cad-label-item tag-arms">
+                    <span className="dot" />
+                    <span>ARM COMPONENTS [SHOULDER, ELBOW, HAND x2]</span>
+                  </div>
+                  <div className="cad-label-item tag-pelvis">
+                    <span className="dot" />
+                    <span>PELVIS & PANTS [BLACK DENIM, BELT LOOP]</span>
+                  </div>
+                  <div className="cad-label-item tag-legs">
+                    <span className="dot" />
+                    <span>LEG COMPONENTS [THIGH, KNEE, ROLLED CUFF]</span>
+                  </div>
+                  <div className="cad-label-item tag-footwear">
+                    <span className="dot" />
+                    <span>FOOTWEAR [LIME SNEAKER, GUM RUBBER SOLE x2]</span>
+                  </div>
                 </div>
-                <div className="swatch-item">
-                  <span className="swatch-color" style={{ background: '#D4FF00' }} />
-                  <span className="swatch-label">Acid Lime</span>
+
+                {/* Component Isolation Filter Bar */}
+                <div className="component-filter-bar font-mono">
+                  <span className="filter-label">ISOLATE PART:</span>
+                  {[
+                    { id: 'all', label: 'All' },
+                    { id: 'head', label: 'Head' },
+                    { id: 'torso', label: 'Torso' },
+                    { id: 'arms', label: 'Arms' },
+                    { id: 'pelvis', label: 'Pelvis' },
+                    { id: 'legs', label: 'Legs' },
+                    { id: 'footwear', label: 'Sneakers' }
+                  ].map(item => (
+                    <button
+                      key={item.id}
+                      type="button"
+                      className={`filter-btn ${selectedPart === item.id ? 'active' : ''}`}
+                      onClick={() => setSelectedPart(item.id)}
+                    >
+                      {item.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* RIGHT PANEL: T-Pose Proportion Guide */}
+            <div className="blueprint-panel panel-tpose">
+              <div className="panel-inner-frame">
+                <div className="cad-corner top-left" />
+                <div className="cad-corner top-right" />
+                <div className="cad-corner bottom-left" />
+                <div className="cad-corner bottom-right" />
+
+                <div className="panel-title-tag font-mono">T-POSE PROPORTION GUIDE</div>
+
+                {/* 3D T-Pose Canvas */}
+                <div ref={rightCanvasRef} className="panel-3d-canvas" />
+
+                {/* Proportion Dimension Markers */}
+                <div className="proportion-markers font-mono">
+                  <div className="marker-line head-line">
+                    <span className="marker-tag">1/4 Head</span>
+                  </div>
+                  <div className="marker-line chest-line">
+                    <span className="marker-tag">2/4 Torso</span>
+                  </div>
+                  <div className="marker-line waist-line">
+                    <span className="marker-tag">3/4 Pelvis</span>
+                  </div>
+                  <div className="marker-line shoe-line">
+                    <span className="marker-tag">4/4 Feet</span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-
-          {/* CENTER PANEL: Modular 3D CAD Blueprint (Exploded Components) */}
-          <div className="blueprint-panel panel-modular-cad">
-            <div className="panel-inner-frame">
-              <div className="cad-corner top-left" />
-              <div className="cad-corner top-right" />
-              <div className="cad-corner bottom-left" />
-              <div className="cad-corner bottom-right" />
-
-              <div className="panel-title-tag font-mono">
-                MODULAR 3D CAD COMPONENTS • EXPLODED LAYOUT
-              </div>
-
-              {/* Center 3D Interactive Canvas */}
-              <div ref={centerCanvasRef} className="panel-3d-canvas center-canvas" />
-
-              {/* Floating Technical CAD Callouts */}
-              <div className="blueprint-sheet-labels font-mono">
-                <div className="cad-label-item tag-head">
-                  <span className="dot" />
-                  <span>HEAD ASSEMBLY [HAIR, FACE, NECK]</span>
-                </div>
-                <div className="cad-label-item tag-torso">
-                  <span className="dot" />
-                  <span>TORSO & T-SHIRT [CREWNECK, POCKET]</span>
-                </div>
-                <div className="cad-label-item tag-arms">
-                  <span className="dot" />
-                  <span>ARM COMPONENTS [SHOULDER, ELBOW, HAND x2]</span>
-                </div>
-                <div className="cad-label-item tag-pelvis">
-                  <span className="dot" />
-                  <span>PELVIS & PANTS [DENIM, BELT LOOP]</span>
-                </div>
-                <div className="cad-label-item tag-legs">
-                  <span className="dot" />
-                  <span>LEG COMPONENTS [THIGH, KNEE, ROLLED CUFF]</span>
-                </div>
-                <div className="cad-label-item tag-footwear">
-                  <span className="dot" />
-                  <span>FOOTWEAR [RED SNEAKER, GUM RUBBER SOLE x2]</span>
-                </div>
-              </div>
-
-              {/* Component Isolation Filter Bar */}
-              <div className="component-filter-bar font-mono">
-                <span className="filter-label">ISOLATE PART:</span>
-                {[
-                  { id: 'all', label: 'All' },
-                  { id: 'head', label: 'Head' },
-                  { id: 'torso', label: 'Torso' },
-                  { id: 'arms', label: 'Arms' },
-                  { id: 'pelvis', label: 'Pelvis' },
-                  { id: 'legs', label: 'Legs' },
-                  { id: 'footwear', label: 'Sneakers' }
-                ].map(item => (
-                  <button
-                    key={item.id}
-                    type="button"
-                    className={`filter-btn ${selectedPart === item.id ? 'active' : ''}`}
-                    onClick={() => setSelectedPart(item.id)}
-                  >
-                    {item.label}
-                  </button>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* RIGHT PANEL: T-Pose Proportion Guide */}
-          <div className="blueprint-panel panel-tpose">
-            <div className="panel-inner-frame">
-              <div className="cad-corner top-left" />
-              <div className="cad-corner top-right" />
-              <div className="cad-corner bottom-left" />
-              <div className="cad-corner bottom-right" />
-
-              <div className="panel-title-tag font-mono">T-POSE PROPORTION GUIDE</div>
-
-              {/* 3D T-Pose Canvas */}
-              <div ref={rightCanvasRef} className="panel-3d-canvas" />
-
-              {/* Proportion Dimension Markers */}
-              <div className="proportion-markers font-mono">
-                <div className="marker-line head-line">
-                  <span className="marker-tag">1/4 Head</span>
-                </div>
-                <div className="marker-line chest-line">
-                  <span className="marker-tag">2/4 Torso</span>
-                </div>
-                <div className="marker-line waist-line">
-                  <span className="marker-tag">3/4 Pelvis</span>
-                </div>
-                <div className="marker-line shoe-line">
-                  <span className="marker-tag">4/4 Feet</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
+        )}
 
         {/* Modal Bottom Engineering Toolbar */}
         <div className="blueprint-modal-toolbar font-mono">

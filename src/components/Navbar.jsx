@@ -32,88 +32,122 @@ export default function Navbar() {
     setMobileMenuOpen(false);
   }, [location.pathname]);
 
+  // Lock body scroll while mobile drawer is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileMenuOpen]);
+
+  // Close on Escape key
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape' && mobileMenuOpen) {
+        setMobileMenuOpen(false);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [mobileMenuOpen]);
+
   return (
-    <header className={`navbar-wrapper ${isScrolled ? 'navbar-scrolled' : ''}`}>
-      <div className="container navbar-content">
-        {/* Brand / Logo */}
-        <Link to="/" className="navbar-logo" aria-label="Mukesh Kumaran M Homepage">
-          <div className="logo-badge">
-            <span className="logo-text">MK</span>
-          </div>
-          <span className="logo-name">Mukesh Kumaran</span>
-        </Link>
-
-        {/* Desktop Nav Links */}
-        <nav className="navbar-nav-desktop" aria-label="Main Navigation">
-          {NAV_LINKS.map((link) => {
-            const isActive = location.pathname === link.path;
-            return (
-              <Link
-                key={link.path}
-                to={link.path}
-                className={`nav-item ${isActive ? 'nav-item-active' : ''}`}
-              >
-                {link.label}
-                {isActive && <span className="nav-active-indicator" />}
-              </Link>
-            );
-          })}
-        </nav>
-
-        {/* Action Button */}
-        <div className="navbar-actions">
-          <Link
-            to="/resume"
-            className="btn btn-sm btn-outline navbar-cta"
-          >
-            <FileText size={15} />
-            <span>Resume</span>
+    <>
+      <header className={`navbar-wrapper ${isScrolled ? 'navbar-scrolled' : ''}`}>
+        <div className="container navbar-content">
+          {/* Brand / Logo */}
+          <Link to="/" className="navbar-logo" aria-label="Mukesh Kumaran M Homepage" onClick={() => setMobileMenuOpen(false)}>
+            <div className="logo-badge">
+              <span className="logo-text">MK</span>
+            </div>
+            <span className="logo-name">Mukesh Kumaran</span>
           </Link>
 
-          {/* Mobile Menu Toggle Button */}
-          <button
-            type="button"
-            className="mobile-toggle-btn"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
-            aria-expanded={mobileMenuOpen}
-          >
-            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile Navigation Drawer */}
-      <div className={`mobile-nav-drawer ${mobileMenuOpen ? 'drawer-open' : ''}`}>
-        <div className="mobile-nav-inner">
-          <div className="mobile-nav-list">
+          {/* Desktop Nav Links */}
+          <nav className="navbar-nav-desktop" aria-label="Main Navigation">
             {NAV_LINKS.map((link) => {
               const isActive = location.pathname === link.path;
               return (
                 <Link
                   key={link.path}
                   to={link.path}
-                  className={`mobile-nav-link ${isActive ? 'mobile-nav-link-active' : ''}`}
+                  className={`nav-item ${isActive ? 'nav-item-active' : ''}`}
                 >
-                  <span>{link.label}</span>
-                  <ChevronRight size={18} className="mobile-link-arrow" />
+                  {link.label}
+                  {isActive && <span className="nav-active-indicator" />}
                 </Link>
               );
             })}
-          </div>
+          </nav>
 
-          <div className="mobile-nav-footer">
+          {/* Action Button */}
+          <div className="navbar-actions">
             <Link
               to="/resume"
-              className="btn btn-primary"
-              style={{ width: '100%' }}
+              className="btn btn-sm btn-outline navbar-cta"
             >
-              <FileText size={16} />
-              <span>Download Resume (PDF)</span>
+              <FileText size={15} />
+              <span>Resume</span>
             </Link>
+
+            {/* Mobile Menu Toggle Button */}
+            <button
+              type="button"
+              className="mobile-toggle-btn"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={mobileMenuOpen}
+            >
+              {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+            </button>
           </div>
         </div>
-      </div>
-    </header>
+
+        {/* Mobile Navigation Drawer */}
+        <div className={`mobile-nav-drawer ${mobileMenuOpen ? 'drawer-open' : ''}`}>
+          <div className="mobile-nav-inner">
+            <div className="mobile-nav-list">
+              {NAV_LINKS.map((link) => {
+                const isActive = location.pathname === link.path;
+                return (
+                  <Link
+                    key={link.path}
+                    to={link.path}
+                    className={`mobile-nav-link ${isActive ? 'mobile-nav-link-active' : ''}`}
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    <span>{link.label}</span>
+                    <ChevronRight size={18} className="mobile-link-arrow" />
+                  </Link>
+                );
+              })}
+            </div>
+
+            <div className="mobile-nav-footer">
+              <Link
+                to="/resume"
+                className="btn btn-primary"
+                style={{ width: '100%' }}
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <FileText size={16} />
+                <span>Download Resume (PDF)</span>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      {/* Mobile Drawer Backdrop Overlay */}
+      <div
+        className={`mobile-nav-backdrop ${mobileMenuOpen ? 'backdrop-active' : ''}`}
+        onClick={() => setMobileMenuOpen(false)}
+        aria-hidden="true"
+      />
+    </>
   );
 }

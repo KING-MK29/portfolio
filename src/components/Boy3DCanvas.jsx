@@ -112,11 +112,11 @@ export default function Boy3DCanvas() {
     keyLight.shadow.bias = -0.001;
     scene.add(keyLight);
 
-    const fillLight = new THREE.DirectionalLight(0xA4C8E8, 0.65);
+    const fillLight = new THREE.DirectionalLight(0xE2E8F0, 0.65);
     fillLight.position.set(-3.5, 2.0, -2.0);
     scene.add(fillLight);
 
-    // Acid Lime cyber rim light (Reduced by 5%)
+    // Acid lime rim light
     const rimLight = new THREE.PointLight(0xD4FF00, 1.9, 7);
     rimLight.position.set(0, 2.8, -2.2);
     scene.add(rimLight);
@@ -128,9 +128,9 @@ export default function Boy3DCanvas() {
     shadowCanvas.height = 128;
     const sCtx = shadowCanvas.getContext('2d');
     const radGrad = sCtx.createRadialGradient(128, 64, 8, 128, 64, 115);
-    radGrad.addColorStop(0, 'rgba(14, 16, 19, 0.75)');
-    radGrad.addColorStop(0.5, 'rgba(14, 16, 19, 0.35)');
-    radGrad.addColorStop(1, 'rgba(14, 16, 19, 0)');
+    radGrad.addColorStop(0, 'rgba(0, 0, 0, 0.85)');
+    radGrad.addColorStop(0.5, 'rgba(0, 0, 0, 0.45)');
+    radGrad.addColorStop(1, 'rgba(0, 0, 0, 0)');
     sCtx.fillStyle = radGrad;
     sCtx.fillRect(0, 0, 256, 128);
 
@@ -148,7 +148,7 @@ export default function Boy3DCanvas() {
     scene.add(shadowMesh);
 
     // --- Blueprint CAD Grid Floor (Activates in Blueprint Mode) ---
-    const gridHelper = new THREE.GridHelper(4.0, 16, 0xD4FF00, 0x2A2E38);
+    const gridHelper = new THREE.GridHelper(4.0, 16, 0xD4FF00, 0x181818);
     gridHelper.position.set(0, -1.35, 0);
     gridHelper.material.transparent = true;
     gridHelper.material.opacity = 0.0;

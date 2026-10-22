@@ -443,7 +443,7 @@ export function TechLogo({ id, size = 36 }) {
     default:
       return (
         <svg viewBox="0 0 48 48" width={size} height={size}>
-          <rect x="6" y="6" width="36" height="36" rx="9" fill="#222222" stroke="#D4FF00" strokeWidth="1.5" />
+          <rect x="6" y="6" width="36" height="36" rx="9" fill="#0A0B0E" stroke="#D4FF00" strokeWidth="1.5" />
           <circle cx="24" cy="24" r="6" fill="#D4FF00" />
         </svg>
       );
