@@ -9,8 +9,6 @@ import {
   Eye,
   Sparkles,
   ArrowUpRight,
-  LayoutGrid,
-  GitCommit,
   Check,
   ArrowUpDown,
   Download
@@ -52,7 +50,6 @@ export default function Certificates() {
   const { certificates } = portfolioData;
   const [selectedCert, setSelectedCert] = useState(null);
   const [activeCategory, setActiveCategory] = useState('all');
-  const [viewMode, setViewMode] = useState('grid'); // 'grid' | 'timeline'
   const [sortOrder, setSortOrder] = useState('desc'); // 'desc' (Oct -> Mar) | 'asc' (Mar -> Oct)
   const [copiedCode, setCopiedCode] = useState(null);
 
@@ -173,7 +170,7 @@ export default function Certificates() {
               })}
             </div>
 
-            {/* Right Controls: Month Sort Toggle & View Switcher */}
+            {/* Right Controls: Month Sort Toggle */}
             <div className="cert-controls-right">
               {/* Month-based Sort Toggle */}
               <button
@@ -187,38 +184,11 @@ export default function Certificates() {
                   Month: {sortOrder === 'desc' ? 'Oct → Mar (Latest)' : 'Mar → Oct (Oldest)'}
                 </span>
               </button>
-
-              {/* View Switcher: Grid vs Timeline */}
-              <div className="cert-view-switcher font-mono">
-                <div className="cert-switcher-toggle">
-                  <button
-                    type="button"
-                    className={`cert-switcher-btn ${viewMode === 'grid' ? 'active' : ''}`}
-                    onClick={() => setViewMode('grid')}
-                    title="Showcase Gallery Grid"
-                  >
-                    <LayoutGrid size={15} />
-                    <span>Gallery</span>
-                  </button>
-                  <button
-                    type="button"
-                    className={`cert-switcher-btn ${viewMode === 'timeline' ? 'active' : ''}`}
-                    onClick={() => setViewMode('timeline')}
-                    title="Chronological Month Timeline"
-                  >
-                    <GitCommit size={15} />
-                    <span>Timeline</span>
-                  </button>
-                </div>
-              </div>
             </div>
           </div>
 
-          {/* =========================================================================
-              VIEW MODE 1: VISUAL SHOWCASE GALLERY (ARRANGED BY MONTH)
-              ========================================================================= */}
-          {viewMode === 'grid' && (
-            <div className="cert-showcase-grid">
+          {/* Visual Showcase Gallery (Arranged by Month) */}
+          <div className="cert-showcase-grid">
               {displayedCertificates.map((cert, index) => {
                 const animDelay = `${(index * 0.08).toFixed(2)}s`;
                 const authCode = cert.verificationCode || cert.serialNumber;
@@ -355,162 +325,6 @@ export default function Certificates() {
                 );
               })}
             </div>
-          )}
-
-          {/* =========================================================================
-              VIEW MODE 2: CHRONOLOGICAL VERTICAL TIMELINE WITH MONTHS SPINE
-              ========================================================================= */}
-          {viewMode === 'timeline' && (
-            <div className="certificates-timeline-container">
-              {/* Glowing Vertical Center Line Spine */}
-              <div className="timeline-center-spine" />
-
-              {/* Timeline Entries: Alternating Left and Right with Center Month Nodes */}
-              <div className="timeline-entries-list">
-                {displayedCertificates.map((cert, index) => {
-                  const isLeft = index % 2 === 0;
-                  const authCode = cert.verificationCode || cert.serialNumber;
-
-                  return (
-                    <div
-                      key={cert.id}
-                      className={`timeline-entry-row ${isLeft ? 'entry-left' : 'entry-right'}`}
-                    >
-                      {/* CENTER MONTH NODE ON THE SPINE */}
-                      <div className="timeline-center-node">
-                        <div className="node-glow-halo" />
-                        <div className="node-center-dot" />
-                        <div className="node-month-pill font-mono">
-                          <Calendar size={11} className="text-copper" />
-                          <span>{cert.month}</span>
-                        </div>
-                      </div>
-
-                      {/* HORIZONTAL CONNECTOR ARM */}
-                      <div className="timeline-connector-arm" />
-
-                      {/* CERTIFICATE CARD BOX (WITH DIRECT PREVIEW IMAGE) */}
-                      <div
-                        className="timeline-card-box portfolio-card cert-card interactive-hover"
-                        onClick={() => openCertModal(cert)}
-                        role="button"
-                        tabIndex={0}
-                        onKeyDown={(e) => {
-                          if (e.key === 'Enter' || e.key === ' ') {
-                            e.preventDefault();
-                            openCertModal(cert);
-                          }
-                        }}
-                      >
-                        {/* Certificate Image Preview inside Timeline Card */}
-                        {cert.imageUrl && (
-                          <div className="timeline-cert-preview-wrap">
-                            <img
-                              src={cert.imageUrl}
-                              alt={cert.title}
-                              className="timeline-cert-preview-img"
-                              loading="lazy"
-                            />
-                            <div className="timeline-cert-preview-sheen" />
-                            <div className="timeline-cert-preview-overlay">
-                              <span className="timeline-cert-action-pill font-mono">
-                                <Eye size={12} />
-                                <span>Inspect Certificate</span>
-                              </span>
-                            </div>
-                          </div>
-                        )}
-
-                        {/* Top Bar with Icon & Status Badges */}
-                        <div className="cert-top-bar">
-                          <div className="cert-icon-container">
-                            <Award size={22} className="text-copper" />
-                          </div>
-                          <div className="cert-top-badges">
-                            <div className="cert-status-badge">
-                              <ShieldCheck size={12} className="text-amber" />
-                              <span className="font-mono">{cert.status}</span>
-                            </div>
-                            <div className="cert-verified-pill font-mono">
-                              <CheckCircle size={10} className="text-copper" />
-                              <span>Verified</span>
-                            </div>
-                          </div>
-                        </div>
-
-                        {/* Title & Issuer */}
-                        <h3 className="cert-card-title">{cert.title}</h3>
-                        <p className="cert-card-issuer font-mono">{cert.issuer}</p>
-
-                        {/* Brief Description */}
-                        <p className="cert-card-snippet">{cert.description}</p>
-
-                        {/* Verification Code */}
-                        {authCode && (
-                          <div
-                            className="cert-auth-chip font-mono"
-                            onClick={(e) => handleCopyCode(authCode, e)}
-                            title="Click to copy credential ID"
-                          >
-                            <span className="cert-auth-label">AUTH ID:</span>
-                            <span className="cert-auth-code">{authCode}</span>
-                            {copiedCode === authCode ? (
-                              <Check size={12} className="text-lime ml-auto" />
-                            ) : (
-                              <span className="cert-auth-copy">copy</span>
-                            )}
-                          </div>
-                        )}
-
-                        {/* Skills Chips */}
-                        <div className="cert-skills-chips">
-                          {cert.skills.slice(0, 3).map((skill, sIdx) => (
-                            <span key={sIdx} className="tech-tag font-mono">
-                              {skill}
-                            </span>
-                          ))}
-                        </div>
-
-                        {/* Bottom Meta & View CTA */}
-                        <div className="cert-meta-row font-mono">
-                          <div className="cert-meta-date">
-                            <Calendar size={12} className="text-secondary" />
-                            <span>{cert.date}</span>
-                          </div>
-                          <div className="cert-footer-actions">
-                            {cert.pdfUrl && (
-                              <a
-                                href={cert.pdfUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="cert-quick-btn cert-quick-pdf"
-                                onClick={(e) => e.stopPropagation()}
-                              >
-                                <FileText size={13} />
-                                <span>PDF</span>
-                              </a>
-                            )}
-                            <div className="cert-view-cta">
-                              <span>Inspect</span>
-                              <ArrowUpRight size={14} className="text-copper" />
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-
-              {/* Timeline Bottom Endpoint */}
-              <div className="timeline-end-cap font-mono">
-                <span className="end-pulse-dot" />
-                <span>
-                  OFFICIAL VERIFIED TIMELINE • {sortOrder === 'desc' ? 'OCTOBER 2026 — MARCH 2026' : 'MARCH 2026 — OCTOBER 2026'}
-                </span>
-              </div>
-            </div>
-          )}
 
           {/* Glassmorphism Modal for Full Certificate Inspection */}
           <Modal
