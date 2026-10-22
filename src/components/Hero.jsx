@@ -57,9 +57,9 @@ export default function Hero() {
         </div>
 
         {/* Floating Verified Badge */}
-        <div className="profile-floating-badge glass-panel">
+        <div className="profile-floating-badge" aria-label="AI and Data Science, Ramco Institute, 2025-2029">
           <div className="floating-badge-icon">
-            <ShieldCheck size={20} className="text-copper" />
+            <ShieldCheck size={18} className="text-copper" />
           </div>
           <div className="floating-badge-text">
             <div className="floating-badge-title">AI & Data Science</div>

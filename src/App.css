@@ -1878,43 +1878,139 @@
   align-items: center;
   gap: 12px;
   padding: 10px 18px;
-  border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(14, 16, 19, 0.6);
-  z-index: 2;
+  border-radius: 14px;
+  background-color: #14171E !important;
+  background: #14171E !important;
+  border: 1px solid rgba(212, 255, 0, 0.35);
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.92), 0 0 15px rgba(212, 255, 0, 0.06);
+  z-index: 5;
   white-space: nowrap;
+  text-align: left;
+  width: max-content;
+  max-width: calc(100vw - 32px);
+  box-sizing: border-box;
+  user-select: none;
+  pointer-events: auto;
 }
 
-@media (max-width: 480px) {
-  .profile-floating-badge {
-    bottom: -14px;
-    max-width: 95%;
-    white-space: normal;
-    padding: 8px 12px;
-    gap: 8px;
-  }
+.floating-badge-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  background: rgba(212, 255, 0, 0.1);
+  border: 1px solid rgba(212, 255, 0, 0.25);
+  color: var(--accent-copper);
+  flex-shrink: 0;
+}
+
+.floating-badge-icon svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+  color: var(--accent-copper);
+}
+
+.floating-badge-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: left;
+  line-height: 1.25;
+  gap: 2px;
+  min-width: 0;
 }
 
 .floating-badge-title {
-  font-size: 0.85rem;
+  font-size: 0.86rem;
   font-weight: 700;
-  color: var(--text-primary);
-}
-
-@media (max-width: 480px) {
-  .floating-badge-title {
-    font-size: 0.78rem;
-  }
+  color: #F1F4F8;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  text-align: left;
+  line-height: 1.2;
 }
 
 .floating-badge-sub {
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: 0.70rem;
   color: var(--text-secondary);
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  text-align: left;
+  line-height: 1.2;
 }
 
 @media (max-width: 480px) {
+  .profile-floating-badge {
+    bottom: -16px;
+    padding: 8px 14px;
+    gap: 10px;
+    border-radius: 12px;
+    width: max-content;
+    max-width: calc(100vw - 28px);
+    text-align: left;
+    white-space: nowrap;
+  }
+
+  .floating-badge-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 7px;
+  }
+
+  .floating-badge-icon svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .floating-badge-text {
+    text-align: left;
+    align-items: flex-start;
+    gap: 1px;
+  }
+
+  .floating-badge-title {
+    font-size: 0.78rem;
+    white-space: nowrap;
+    text-align: left;
+  }
+
   .floating-badge-sub {
     font-size: 0.65rem;
+    white-space: nowrap;
+    text-align: left;
+  }
+}
+
+@media (max-width: 360px) {
+  .profile-floating-badge {
+    bottom: -14px;
+    padding: 6px 10px;
+    gap: 8px;
+    border-radius: 10px;
+    max-width: calc(100vw - 20px);
+  }
+
+  .floating-badge-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .floating-badge-icon svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .floating-badge-title {
+    font-size: 0.72rem;
+  }
+
+  .floating-badge-sub {
+    font-size: 0.60rem;
   }
 }
 

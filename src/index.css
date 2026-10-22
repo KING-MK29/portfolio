@@ -417,6 +417,15 @@ select {
   font-family: var(--font-mono);
 }
 
+/* Color utility classes */
+.text-copper {
+  color: var(--accent-copper);
+}
+
+.text-amber {
+  color: var(--accent-amber);
+}
+
 /* Subtle glow backdrop element */
 .bg-glow-spot {
   position: absolute;
